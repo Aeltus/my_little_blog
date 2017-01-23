@@ -1,0 +1,11 @@
+{
+
+  "require": {
+
+    "twig/extensions": "~1.0",
+    "hoa/router": "~3.0"
+
+
+  }
+
+}
