@@ -10,12 +10,12 @@ require ("../autoload.php");
 
 use Hoa\Router\Http;
 use Hoa\Dispatcher\Basic;
-use Application\Controller\Blog;
 
 
 $dispatcher = new Basic();
 $router     = new Http();
-$router->get('i', '/', 'Blog', 'index');
+$router->get('i', '/', 'Application\Controller\Blog', 'index')
+       ->get('a', '/article-(?<id>\d+)', 'Application\Controller\Blog', 'article');
 
 $dispatcher->dispatch($router);
 

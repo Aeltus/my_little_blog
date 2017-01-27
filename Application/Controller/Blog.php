@@ -10,12 +10,12 @@ namespace Application\Controller;
 
 class Blog extends \Hoa\Dispatcher\Kit {
 
-    public function IndexAction ( ) {
+    public function Index ( ) {
 
         echo 'Gordon\'s blog index.', "\n";
     }
 
-    public function ArticleAction ( $id ) {
+    public function Article ( $id ) {
 
         echo 'Article n°', $id, '.', "\n";
     }
