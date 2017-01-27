@@ -15,6 +15,7 @@ class Blog extends \Hoa\Dispatcher\Kit {
         $data = [];
 
         $data['display'] = 'Gordon\'s blog index.';
+        $data['index'] = 'true';
 
         return array('layout' => 'index.html.twig', 'data' => $data);
 
@@ -22,7 +23,10 @@ class Blog extends \Hoa\Dispatcher\Kit {
 
     public function Article ( $id ) {
 
-        echo 'Article n°', $id, '.', "\n";
+        $data = [];
+        $data['display'] = 'Article n°'. $id .'.';
+
+        return array('layout' => 'article.html.twig', 'data' => $data);
     }
 }
 

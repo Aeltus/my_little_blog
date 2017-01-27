@@ -2,3 +2,8 @@ blog_index:
     path:        /
     controller:  Application\Controller\Blog
     action:      index
+
+blog_article:
+    path:        /article-(?<id>\d+)
+    controller:  Application\Controller\Blog
+    action:      article
