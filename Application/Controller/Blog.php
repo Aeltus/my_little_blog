@@ -12,7 +12,12 @@ class Blog extends \Hoa\Dispatcher\Kit {
 
     public function Index ( ) {
 
-        echo 'Gordon\'s blog index.', "\n";
+        $data = [];
+
+        $data['display'] = 'Gordon\'s blog index.';
+
+        return array('layout' => 'index.html.twig', 'data' => $data);
+
     }
 
     public function Article ( $id ) {
