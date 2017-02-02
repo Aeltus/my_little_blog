@@ -1,0 +1,14 @@
+blog_index:
+    path:        /
+    controller:  Application\Controller\Core
+    action:      index
+
+blog_index_2:
+    path:
+    controller:  Application\Controller\Core
+    action:      index
+
+blog_contact:
+    path:        /contact
+    controller:  Application\Controller\Core
+    action:      contact

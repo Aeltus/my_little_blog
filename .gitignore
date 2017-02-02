@@ -1,2 +1,2 @@
-/conf
+Application/Config/Private/*.yml
 /vendor
