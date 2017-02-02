@@ -1,0 +1,81 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Blog collaboratif de David{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <h1>Contactez moi :</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="contact-area">
+                    <a href="/contact"><h3>Contact</h3></a>
+                    <form action="" method="post" role="form" class="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" data-rule="required" data-msg="Entrez votre nom ici" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Votre mail" data-rule="email" data-msg="Taper votre email ici" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet de votre message" data-rule="required" data-msg="Taper le sujet de votre message ici" />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Tapez votre message ici" placeholder="Votre message ici"></textarea>
+                            <div class="validation"></div>
+                        </div>
+
+                        <div class="text-center"><button type="submit" class="btn">Envoyer le message</button></div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-md-offset-2">
+
+                <div class="row">
+                    <h3>Coordonnées</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <a href="mailto:david.danjard@gmail.com"><i class="fa fa-envelope"></i></a>
+                    </div>
+                    <div class="col-md-11">
+                        <a href="mailto:david.danjard@gmail.com">david.danjard@gmail.com</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <div class="col-md-11">
+                        +33 (0)6 32 54 76 09<br />
+                        +33 (0)4 68 69 16 86
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <i class="fa fa-home"></i>
+                    </div>
+                    <div class="col-md-11">
+                        <p>DANJARD David <br />
+                            La Pouillerie <br />
+                            11240 ESCUEILLENS ET ST JUST <br />
+                            FRANCE</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d263274.64744786243!2d1.94261700945751!3d43.19267817472987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12afb3cd83f4cb4f%3A0xb1c2c96fad4ae015!2s127+La+Pouillerie%2C+11240+Escueillens-et-Saint-Just-de-B%C3%A9lengard!5e0!3m2!1sfr!2sfr!4v1486037766150" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+{% endblock %}

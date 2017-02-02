@@ -1,9 +1,14 @@
 blog_index:
     path:        /
-    controller:  Application\Controller\Blog
+    controller:  Application\Controller\Core
     action:      index
 
-blog_article:
-    path:        /article-(?<id>\d+)
-    controller:  Application\Controller\Blog
-    action:      article
+blog_index_2:
+    path:
+    controller:  Application\Controller\Core
+    action:      index
+
+blog_contact:
+    path:        /contact
+    controller:  Application\Controller\Core
+    action:      contact
