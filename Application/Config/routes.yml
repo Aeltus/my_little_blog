@@ -1,14 +1,19 @@
-blog_index:
+index:
     path:        /
     controller:  Application\Controller\Core
     action:      index
 
-blog_index_2:
+index_2:
     path:
     controller:  Application\Controller\Core
     action:      index
 
-blog_contact:
+contact:
     path:        /contact
     controller:  Application\Controller\Core
     action:      contact
+
+mailer:
+    path:        /mailer
+    controller:  Application\Controller\Core
+    action:      mailer

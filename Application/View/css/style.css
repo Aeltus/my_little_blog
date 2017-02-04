@@ -64,10 +64,10 @@ ul.social-network li a {
 .social-network li:hover .fa-facebook {
   color: #39579a;
 }
-.social-network li:hover .fa-google-plus {
+.social-network li:hover .fa-github {
   color: #eb8984;
 }
-.social-network li:hover .fa-pinterest {
+.social-network li:hover .fa-paperclip {
   color: #c9171e;
   
 }

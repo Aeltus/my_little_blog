@@ -33,7 +33,7 @@ try {
 
     foreach ($valuesConfig as $routeName => $values){
 
-        $router -> get($routeName, $values['path'], $values['controller'], $values['action']);
+        $router -> get_post($routeName, $values['path'], $values['controller'], $values['action']);
 
     }
 
