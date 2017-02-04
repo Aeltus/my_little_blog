@@ -11,3 +11,11 @@ require_once(__DIR__.'/../vendor/autoload.php');
 $ControllerLoader = new SplClassLoader('Application\Controller', __DIR__.'/../');
 $ControllerLoader -> register();
 
+$EntityLoader = new SplClassLoader('Application\Entity', __DIR__.'/../');
+$EntityLoader -> register();
+
+$ManagerLoader = new SplClassLoader('Application\Manager', __DIR__.'/../');
+$ManagerLoader -> register();
+
+$RepositoryLoader = new SplClassLoader('Application\Repository', __DIR__.'/../');
+$RepositoryLoader -> register();

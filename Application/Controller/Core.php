@@ -8,11 +8,15 @@
 
 namespace Application\Controller;
 
+use Application\Manager\FormFactory;
+
+
 class Core extends \Hoa\Dispatcher\Kit {
 
     public function index () {
 
         $data = [];
+        $data['form'] = FormFactory::build('Message');
 
         return array('layout' => 'index.html.twig', 'data' => $data);
 
@@ -21,8 +25,15 @@ class Core extends \Hoa\Dispatcher\Kit {
     public function contact () {
 
         $data = [];
+        if (isset($_POST['message'])){
+            $data['message'] = $_POST['message'];
+
+        }
+
+        $data['form'] = FormFactory::build('Message');
 
         return array('layout' => 'contact.html.twig', 'data' => $data);
     }
+
 }
 
