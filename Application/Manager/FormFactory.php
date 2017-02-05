@@ -20,7 +20,7 @@ class FormFactory {
      *
      * Create a form, from an Entity
      */
-    public static function build ($entity){
+    public static function build ($entity, $message = NULL){
 
         $class = new ReflectionClass('Application\Entity\\'.$entity);
         $x = 0;
@@ -51,9 +51,19 @@ class FormFactory {
             }
 
             if ($type == "input"){
-                $field .= "/>";
+                if (isset($message)){
+                    $funcName = "get".ucfirst($attribute->getName());
+                    $field .= ' value="'.$message->$funcName().'"';
+                }
+
+                $field .= " />";
             } elseif ($type == "textarea"){
-                $field .= "></textarea>";
+                $field .= ">";
+                if (isset($message)){
+                    $funcName = "get".ucfirst($attribute->getName());
+                    $field .= $message->$funcName();
+                }
+                $field .= "</textarea>";
             }
 
             $field .= "<div class=\"validation\"></div>";
@@ -63,6 +73,56 @@ class FormFactory {
 
         }
     return $fields;
+    }
+
+    /**
+     * @param string $entity
+     * @param $object
+     * @return string $status
+     */
+    public static function security($entity, $object){
+
+        $status = NULL;
+        $class = new ReflectionClass("Application\Entity\\".$entity);
+
+        if ($class->isInstance($object)){
+
+            $class = new ReflectionClass('Application\Entity\\'.$entity);
+            $listParams = FormFactory::getParams($entity);
+            $x=0;
+
+            foreach ($class->getProperties() as $attribute) {
+
+                $regex = substr($listParams[$x]['security'], 0, -2);
+
+                if (!empty($regex)){
+
+                    $funcName = "get".ucfirst($attribute->getName());
+                    $value = $object->$funcName();
+
+                    if (!preg_match($regex, $value)){
+
+                        if (isset($status)){
+                            $status .= "|".$attribute->getName();
+                        } else {
+                            $status = $attribute->getName();
+                        }
+                    }
+
+                }
+                $x++;
+            }
+
+
+        } else {
+
+            $status = "No an instance of".$entity;
+
+        }
+
+
+
+    return $status;
     }
 
 
