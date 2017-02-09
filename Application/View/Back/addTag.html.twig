@@ -1,0 +1,26 @@
+{% extends "Back/layout.html.twig" %}
+
+{% block title %}Ajout d'un Tag{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Ajout d'un nouveau tag</h1>
+            </div>
+
+            <div class="col-md-12">
+                <form action="" method="post" role="form" class="adminForm">
+
+                    {% for line in form %}
+                        {{ line|raw }}
+                    {% endfor %}
+
+                    <div class="text-center"><button type="submit" class="btn">Enregistrer le tag</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

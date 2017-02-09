@@ -32,9 +32,35 @@ class FormFactory {
 
             $params = $listParams[$x];
 
-            $field = "<div class=\"form-group\">\n<";
+            $field = "<div class=\"form-group\">\n";
+
+            if (array_key_exists('label',$params)){
+
+                $field .= '<label for="'.$attribute->getName().'">'.$params['label'].'</label>';
+
+            }
+
+            if (array_key_exists('button', $params)){
+
+                $field .= '<a href="Application/FileBrowser/browser.php" target="_blank" class="btn btn-default" id="'.$params['button'].'">Ajouter une image</a>';
+
+            }
+
+            if (array_key_exists('remplacedBy', $params)){
+
+                if ($params['remplacedBy'] == 'pictureFinder'){
+                    $field .= "<p id='substitute'>Aucune image n'à encore été choisie</p>";
+                }
+
+            }
+
+            $field .= "<";
 
             foreach ($params as $param => $value){
+
+                // cleanning
+                $param = rtrim($param);
+                $value = rtrim($value);
 
                 if ($param == "champ"){
 
@@ -53,7 +79,8 @@ class FormFactory {
             if ($type == "input"){
                 if (isset($message)){
                     $funcName = "get".ucfirst($attribute->getName());
-                    $field .= ' value="'.$message->$funcName().'"';
+                    $value = rtrim($message->$funcName());
+                    $field .= ' value="'.$value.'"';
                 }
 
                 $field .= " />";
@@ -61,7 +88,8 @@ class FormFactory {
                 $field .= ">";
                 if (isset($message)){
                     $funcName = "get".ucfirst($attribute->getName());
-                    $field .= $message->$funcName();
+                    $value = rtrim($message->$funcName());
+                    $field .= $value;
                 }
                 $field .= "</textarea>";
             }
@@ -93,7 +121,7 @@ class FormFactory {
 
             foreach ($class->getProperties() as $attribute) {
 
-                $regex = substr($listParams[$x]['security'], 0, -2);
+                $regex = rtrim($listParams[$x]['security']);
 
                 if (!empty($regex)){
 

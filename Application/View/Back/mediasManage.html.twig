@@ -1,0 +1,36 @@
+{% extends "Back/layout.html.twig" %}
+
+{% block title %}Administration des Médias{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <form method="post" action="/Application/FileBrowser/upload.php?call=admin_medias" enctype="multipart/form-data">
+
+                <label for="upload">Ajouter une image (jpg, png, gif | max. 1.5 Mo) :</label><br />
+
+                <input type="file" name="upload" id="upload" /><br />
+
+                <input type="submit" name="submit" value="Envoyer" />
+
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% for picture,ext in pictures %}
+
+                <div class="col-md-3">
+                    <figure class="top-10 text-center">
+                        <img src="Application/FileBrowser/Files/{{ picture }}.{{ ext }}" class="browser_img" />
+                        <figcaption><a href="/Application/FileBrowser/mediaDelete.php?picture={{ picture }}.{{ ext }}&call=admin_medias">Supprimer</a></figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -25,7 +25,7 @@ class Core extends \Hoa\Dispatcher\Kit {
         $data = [];
         $data['form'] = FormFactory::build('Message');
 
-        return array('layout' => 'index.html.twig', 'data' => $data);
+        return array('layout' => 'Front/index.html.twig', 'data' => $data);
 
     }
 
@@ -72,10 +72,11 @@ class Core extends \Hoa\Dispatcher\Kit {
                     }
                 }
 
-                $data['messagesWarning'] = $errorMessage;
+                $_SESSION['messagesWarning'][] = $errorMessage;
+
             } else {
 
-                $data['messagesSuccess'] = array("Votre message à bien été envoyé");
+                $_SESSION['messagesSuccess'][] = "Votre message à bien été envoyé";
             }
         }
 
@@ -132,7 +133,7 @@ if (isset($message) && !isset($security)){
         }
 
 
-        return array('layout' => 'contact.html.twig', 'data' => $data);
+        return array('layout' => 'Front/contact.html.twig', 'data' => $data);
 
 /*====================================================================================================================*/
     }

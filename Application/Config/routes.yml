@@ -17,3 +17,43 @@ mailer:
     path:        /mailer
     controller:  Application\Controller\Core
     action:      mailer
+
+blog_main_page:
+    path:        /blog
+    controller:  Application\Controller\BlogPostController
+    action:      blogMainPage
+
+admin_index:
+    path:        /admin
+    controller:  Application\Controller\BlogPostController
+    action:      indexAdmin
+
+admin_post_manage:
+    path:        /admin_posts
+    controller:  Application\Controller\BlogPostController
+    action:      index
+
+admin_post_add:
+    path:        /add_post
+    controller:  Application\Controller\BlogPostController
+    action:      addPost
+
+admin_tag_manage:
+    path:        /admin_tags
+    controller:  Application\Controller\TagController
+    action:      manageTags
+
+admin_tag_add:
+    path:        /add_tag
+    controller:  Application\Controller\TagController
+    action:      createNewTag
+
+admin_medias_manager:
+    path:        /admin_medias
+    controller:  Application\Controller\BlogPostController
+    action:      mediasManage
+
+admin_comments_manager:
+    path:        /admin_comments
+    controller:  Application\Controller\CommentController
+    action:      manageComments

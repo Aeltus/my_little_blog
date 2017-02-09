@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %}</title>
+    {% block headScript %}{% endblock %}
+    <!-- Bootstrap Core CSS -->
+    <link href="Application/View/Back/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="Application/View/Back/css/simple-sidebar.css" rel="stylesheet">
+    <link href="Application/View/Back/css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="/admin">
+                    Administration
+                </a>
+            </li>
+            <li>
+                <a href="/admin_posts">Posts</a>
+            </li>
+            <li>
+                <a href="/admin_comments">Commentaires</a>
+            </li>
+            <li>
+                <a href="/admin_tags">Tags</a>
+            </li>
+            <li>
+                <a href="/admin_medias">Médias</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Compresser / étirer le menu</a> <a href="/" class="btn btn-default">Retour sur le site</a>
+                </div>
+                <hr>
+            </div>
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                                Messages                                                              #
+#                                                                                                                      #
+=====================================================================================================================-->
+            <div class="container">
+                <div class="row">
+
+                    {% if messagesSuccess is defined %}
+
+                        <div class="alert alert-success">
+
+                            {% for message in messagesSuccess %}
+                                {{ message }} <br />
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                    {% if messagesInfo is defined %}
+
+                        <div class="alert alert-info">
+
+                            {% for message in messagesInfo %}
+                                {{ message }} <br />
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                    {% if messagesWarning is defined %}
+
+                        <div class="alert alert-warning">
+
+                            {% for message in messagesWarning %}
+                                {{ message }} <br />
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                    {% if messagesDanger is defined %}
+
+                        <div class="alert alert-danger">
+
+                            {% for message in messagesDanger %}
+                                {{ message }} <br />
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+            </div>
+<!--=================================================================================================================-->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+<script src="Application/View/Back/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="Application/View/Back/js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(function() {
+        if ($("#headerPicture").val() != ""){
+            $("#substitute").html("<img src=\''.$url.'\' class=\'browser_img\'/>");
+            $("#imageFinder").text("Modifier l\'image");
+        }
+    });
+</script>
+
+</body>
+
+</html>
