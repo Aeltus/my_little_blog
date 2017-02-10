@@ -14,21 +14,20 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Comment
  * @package Application\Entity
  *
- * @ORM\Table(name="mlb_comment")
- * @ORM\Table(indexes={@ORM\Index(name="comment_search", columns={"comment"})})
+ * @ORM\Table(name="mlb_comment", indexes={@ORM\Index(name="comment_search", columns={"comment"})})
  * @ORM\Entity(repositoryClass="Application\Repository\CommentRepository")
  */
 class Comment {
 
     /**
-     * @ORM\Column(name="idComment", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idComment = null;
+    private $id = null;
 
     /**
-     * @ORM\Column(name="comment", type="text")
+     * @ORM\Column(name="comment", type="string")
      */
     private $comment;
 
@@ -38,10 +37,10 @@ class Comment {
     private $author;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Entity\BlogPost", cascade={"persist"})
-     * @ORM\Column(name="idPost", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Application\Entity\BlogPost")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idPost;
+    private $Post;
 
     /**
      * @ORM\Column(name="published", type="boolean", nullable=false)
@@ -61,9 +60,9 @@ class Comment {
     /**
      * @return null|integer
      */
-    public function getIdComment()
+    public function getid()
     {
-        return $this->idComment;
+        return $this->id;
     }
 
     /**
@@ -77,9 +76,9 @@ class Comment {
     /**
      * @return integer
      */
-    public function getIdPost()
+    public function getPost()
     {
-        return $this->idPost;
+        return $this->Post;
     }
 
     /**
@@ -107,11 +106,11 @@ class Comment {
     }
 
     /**
-     * @param null|integer $idComment
+     * @param null|integer $id
      */
-    public function setIdComment($idComment)
+    public function setid($id)
     {
-        $this->idComment = $idComment;
+        $this->id = $id;
     }
 
     /**
@@ -125,9 +124,9 @@ class Comment {
     /**
      * @param integer $idPost
      */
-    public function setIdPost($idPost)
+    public function setPost(BlogPost $Post)
     {
-        $this->idPost = $idPost;
+        $this->idPost = $Post;
     }
 
     /**

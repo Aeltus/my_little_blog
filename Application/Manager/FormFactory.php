@@ -7,8 +7,8 @@
  */
 namespace Application\Manager;
 
-use Application\Entity\Message;
 use \ReflectionClass;
+use Application\Manager\GetDoctrine;
 
 
 class FormFactory {
@@ -20,7 +20,7 @@ class FormFactory {
      *
      * Create a form, from an Entity
      */
-    public static function build ($entity, $message = NULL){
+    public static function build ($entity, $obj = NULL){
 
         $class = new ReflectionClass('Application\Entity\\'.$entity);
         $x = 0;
@@ -31,10 +31,28 @@ class FormFactory {
         foreach ($class->getProperties() as $attribute) {
 
             $params = $listParams[$x];
+            $textareaValue = "";
+            
+            // set the values in $params from the object values
+            if (!empty($obj) && !array_key_exists('externalAttribute', $params)){
+
+                $funcName = 'get'.ucfirst($attribute->getName());
+                $value = $obj->$funcName();
+
+                if ($value instanceof \DateTime){
+                    $value = "";
+                }
+
+
+                $params['value'] = $value;
+
+                
+            }
+            
 
             $field = "<div class=\"form-group\">\n";
 
-            if (array_key_exists('label',$params)){
+            if (array_key_exists('label',$params) && !array_key_exists('externalAttribute', $params)){
 
                 $field .= '<label for="'.$attribute->getName().'">'.$params['label'].'</label>';
 
@@ -54,49 +72,125 @@ class FormFactory {
 
             }
 
-            $field .= "<";
+            if (array_key_exists('externalAttribute', $params)){
 
-            foreach ($params as $param => $value){
+                $em = GetDoctrine::getEM();
+                $inputs = $em->getRepository('Application\Entity\\'.$params['externalAttribute'])->findAll();
+                $field .= '<fieldset class="scheduler-border"><legend class="scheduler-border">'.ucfirst($attribute->getName()).':</legend>';
 
-                // cleanning
-                $param = rtrim($param);
-                $value = rtrim($value);
+                foreach ($inputs as $input){
 
-                if ($param == "champ"){
 
-                    $type = $value;
-                    $field .= $value;
-                    $field .= ' name="'.$attribute->getName().'" id="'.$attribute->getName().'" ';
+                    unset($params['checked']);
+                    $field .= '<label for="'.$attribute->getName().'-'.$input->getId().'">'.$input->getName().'</label>';
+                    $field .= "<";
 
-                } elseif ($param != "security" && $value != ""){
+                    // params for tags => get the arrayCollection values
+                    if (!empty($obj)){
+                        $funcName = "get".ucfirst($attribute->getName());
+                        $paramsTags = $obj->$funcName();
 
-                    $field .= $param.'="'.$value.'" ';
+                        foreach ($paramsTags as $tag){
+                            if ($tag->getName() == $input->getName()){
+                                $params['checked'] = "checked";
+                            }
+                        }
+                    }
+
+
+
+                    foreach ($params as $param => $value) {
+
+                        // cleanning
+                        $param = rtrim($param);
+                        $value = rtrim($value);
+
+                        if ($param == "champ") {
+
+                            $type = $value;
+                            $field .= $value;
+                            $field .= ' name="' . $attribute->getName() . '-'.$input->getId().'" id="' . $attribute->getName() . '-'.$input->getId().'" ';
+
+                        } elseif ($param != "security" && $value != "") {
+
+                            if ($type == "textarea" && $param == "value"){
+                                $textareaValue = $value;
+                            } else {
+
+                                if (array_key_exists('type', $params)){
+                                    if ($params['type'] == "checkbox" && $param == "value"){
+                                        if ($value == "1"){
+                                            $param = "checked";
+                                            $value = "checked";
+                                        }
+                                    }
+                                }
+
+                                $field .= $param . '="' . $value . '" ';
+                            }
+
+                        }
+
+                    }
+
+                    if ($type == "input") {
+                        $field .= " />";
+                    } elseif ($type == "textarea") {
+                        $field .= ">";
+                        $field .= $textareaValue."</textarea>";
+                    }
+
+                }
+            $field .= '</fielset>';
+            } else {
+
+                $field .= "<";
+
+                foreach ($params as $param => $value) {
+
+                    // cleanning
+                    $param = rtrim($param);
+                    $value = rtrim($value);
+
+                    if ($param == "champ") {
+
+                        $type = $value;
+                        $field .= $value;
+                        $field .= ' name="' . $attribute->getName() . '" id="' . $attribute->getName() . '" ';
+
+                    } elseif ($param != "security" && $value != "") {
+
+                        if ($type == "textarea" && $param == "value"){
+                            $textareaValue = $value;
+                        } else {
+
+                            if (array_key_exists('type', $params)){
+                                if ($params['type'] == "checkbox" && $param == "value"){
+                                    if ($value == "1"){
+                                        $param = "checked";
+                                        $value = "checked";
+                                    }
+                                }
+                            }
+
+                            $field .= $param . '="' . $value . '" ';
+                        }
+
+                    }
 
                 }
 
+                if ($type == "input") {
+                    $field .= " />";
+                } elseif ($type == "textarea") {
+                    $field .= ">";
+                    $field .= $textareaValue."</textarea>";
+                }
             }
-
-            if ($type == "input"){
-                if (isset($message)){
-                    $funcName = "get".ucfirst($attribute->getName());
-                    $value = rtrim($message->$funcName());
-                    $field .= ' value="'.$value.'"';
-                }
-
-                $field .= " />";
-            } elseif ($type == "textarea"){
-                $field .= ">";
-                if (isset($message)){
-                    $funcName = "get".ucfirst($attribute->getName());
-                    $value = rtrim($message->$funcName());
-                    $field .= $value;
-                }
-                $field .= "</textarea>";
-            }
-
             $field .= "<div class=\"validation\"></div>";
             $field .= "\n</div>";
             $fields[] = $field;
+
             $x++;
 
         }
@@ -173,7 +267,7 @@ class FormFactory {
 
                 if (isset($line[6])) {
 
-                    if ($line[6] == "@form") {
+                    if ($line[6] == "#form") {
 
                         $data = explode("|", $buffer);
                         $data[0] = substr($data[0], 13);

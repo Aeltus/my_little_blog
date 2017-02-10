@@ -8,130 +8,132 @@
 
 namespace Application\Entity;
 
+
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @package Application\Entity
  *
- * @ORM\Table(name="mlb_blogPost")
- * @ORM\Table(indexes={@ORM\Index(name="blogPost_search", columns={"content"})})
+ * @ORM\Table(name="mlb_blogPost", indexes={@ORM\Index(name="blogPost_search", columns={"hook"})})
  * @ORM\Entity(repositoryClass="Application\Repository\BlogPostRepository")
  */
 class BlogPost {
 
     /**
-     * @ORM\Column(name="idBlogPost", type="integer")
+     * @ORM\Column(name="id", type="integer", nullable=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
-    private $idPost = NULL;
+    private $id = NULL;
 
     /**
-     * @ORM\Column(name="title", type="string")
+     * @ORM\Column(name="title", type="string", nullable=true)
      *
-     * @form champ=input|required=true|type=text|class=form-control|placeholder=Titre|label=Titre du post|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Titre|label=Titre du post|security=
      */
     private $title;
 
     /**
      * @ORM\Column(name="hook", type="string", nullable=false)
      *
-     * @form champ=textarea|required=true|rows=5|class=form-control|placeholder=Entête du post|label=Entête du post|security=
+     * #form champ=textarea|required=true|rows=5|class=form-control|placeholder=Entête du post|label=Entête du post|security=
      */
     private $hook;
 
     /**
-     * @ORM\Column(name="headerPicture", type="string")
+     * @ORM\Column(name="headerPicture", type="string", nullable=true)
      *
-     * @form champ=input|type=hidden|class=form-control|placeholder=Image d'entête|label=Image d'entête|button=imageFinder|remplacedBy=pictureFinder|security=
+     * #form champ=input|type=hidden|class=form-control|placeholder=Image d'entête|label=Image d'entête|button=imageFinder|remplacedBy=pictureFinder|security=
      */
     private $headerPicture;
 
     /**
      * @ORM\Column(name="content", type="text", nullable=false)
      *
-     * @form champ=textarea|required=true|rows=10|class=form-control|placeholder=Contenu du post|value=|security=
+     * #form champ=textarea|required=true|rows=10|class=form-control|placeholder=Contenu du post|value=|security=
      */
     private $content;
 
     /**
      * @ORM\Column(name="author", type="string", nullable=false)
      *
-     * @form champ=input|required=true|type=text|class=form-control|placeholder=Nom de l'auteur de l'article|label=Auteur de l'article|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Nom de l'auteur de l'article|label=Auteur de l'article|security=
      */
     private $author;
 
     /**
-     * @ORM\Column(name="lastUpdate", type="datetime")
+     * @ORM\Column(name="lastUpdate", type="datetime", nullable=false)
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
     private $lastUpdate;
 
     /**
-     * @ORM\Column(name="visible", type="boolean")
+     * @ORM\Column(name="visible", type="boolean", nullable=true)
      *
-     * @form champ=input|type=checkbox|class=form-control|label=Visible sur le site
+     * #form champ=input|type=checkbox|class=form-control|label=Visible sur le site
      */
     private $visible = false;
 
     /**
-     * @ORM\Column(name="commentsActivated", type="boolean")
+     * @ORM\Column(name="commentsActivated", type="boolean", nullable=true)
      *
-     * @form champ=input|type=checkbox|class=form-control|label=Activer les commentaires
+     * #form champ=input|type=checkbox|class=form-control|label=Activer les commentaires
      */
     private $commentsActivated = false;
 
     /**
      * @ORM\Column(name="nbViews", type="integer")
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
     private $nbViews = 0;
 
     /**
      * @ORM\Column(name="nbComments", type="integer")
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
     private $nbComments = 0;
 
     /**
-     * @ORM\Column(name="evaluation", type="decimal")
+     * @ORM\Column(name="evaluation", type="decimal", nullable=true)
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
-    private $evaluation;
+    private $evaluation = 0;
 
     /**
      * @ORM\Column(name="nbEvaluation", type="integer")
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
     private $nbEvaluation = 0;
 
     /**
      * @ORM\ManyToMany(targetEntity="Application\Entity\Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="mlb_tag")
+     * @ORM\JoinTable(name="mlb_tag_post")
      *
-     * @form champ=input|type=checkbox|class=form-control|required=true|externalAttribute=Tag|label=Tag
+     * #form champ=input|type=checkbox|class=form-control|externalAttribute=Tag|label=Tag
      */
     private $tags;
 
     public function __construct()
     {
-        $this->lastUpdate = new \Datetime();
+        $this->lastUpdate = new \DateTime();
         $this->tags = new ArrayCollection();
     }
 
     /**
      * @return null|integer
      */
-    public function getIdPost()
+    public function getId()
     {
-        return $this->idPost;
+        return $this->id;
     }
 
     /**
@@ -239,11 +241,11 @@ class BlogPost {
     }
 
     /**
-     * @param null $idPost
+     * @param null $id
      */
-    public function setIdPost($idPost)
+    public function setId($id)
     {
-        $this->idPost = $idPost;
+        $this->id = $id;
     }
 
     /**
@@ -353,9 +355,16 @@ class BlogPost {
     /**
      * @param Tag $tag
      */
-    public function removeCategory(Tag $tag)
+    public function removeTag(Tag $tag)
     {
         $this->tags->removeElement($tag);
     }
 
+    public function resetBool(){
+
+        $this->tags->clear();
+        $this->visible = false;
+        $this->commentsActivated = false;
+
+    }
 }

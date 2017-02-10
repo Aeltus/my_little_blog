@@ -12,20 +12,13 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
 use Symfony\Component\Yaml\Yaml;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Application\Manager\GetDoctrine;
 
 
 /* Instantiation of doctrine
  ---------------------------------------------------------------------------------------------------------------------*/
 
-$paths = array("Application/Entity");
-$isDevMode = true;
-
-// the connection configuration
-$dbParams = Yaml::parse(file_get_contents('Application/Config/Private/bdd.yml'));
-
-
-$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
-$em = EntityManager::create($dbParams, $config);
+$em = GetDoctrine::getEM();
 
 return ConsoleRunner::createHelperSet($em);
 

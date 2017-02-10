@@ -9,10 +9,18 @@
             <a href="/add_tag" class="btn btn-default">Ajouter un Tag</a>
         </div>
     </div>
+<div class="container">
     <div class="row">
+
         <div class="col-md-12">
-            <p>ICI se trouvera l'affichage des tags</p>
-        </div>
+            <table class="table-bordered table-hover text-center">
+            <tr><th class="text-center">Nom du tag</th><th class="text-center"> Modifer </th><th class="text-center"> Supprimer </th></tr>
+            {% for tag in tags %}
+                <tr><td>{{ tag.name }}</td><td><a href="/updateTag-{{ tag.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delTag-{{ tag.id }}" class="btn btn-default">Supprimer</a></td></tr>
+            {% endfor %}
+        </table>
     </div>
 
+    </div>
+</div>
 {% endblock %}

@@ -13,24 +13,9 @@ use Hoa\Router\Http;
 use Hoa\Dispatcher\Basic;
 use Hoa\Router\Exception\NotFound;
 use Symfony\Component\Yaml\Yaml;
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
 
 session_start();
 
-/* Instantiation of doctrine
- ---------------------------------------------------------------------------------------------------------------------*/
-
-$paths = array(__DIR__."/Application/Entity");
-$isDevMode = true;
-
-// the connection configuration
-$dbParams = Yaml::parse(file_get_contents('Application/Config/Private/bdd.yml'));
-
-$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
-$em = EntityManager::create($dbParams, $config);
-
-/*--------------------------------------------------------------------------------------------------------------------*/
 
 /* Instantiation of twig
  ---------------------------------------------------------------------------------------------------------------------*/

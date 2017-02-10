@@ -150,8 +150,10 @@
 
 <script type="text/javascript">
     $(function() {
-        if ($("#headerPicture").val() != ""){
-            $("#substitute").html("<img src=\''.$url.'\' class=\'browser_img\'/>");
+        var headerPicture = $("#headerPicture").val();
+        $(".alert").fadeOut(3000, 'linear');
+        if (headerPicture != ""){
+            $("#substitute").html("<img src='"+headerPicture+"' class='browser_img'/>");
             $("#imageFinder").text("Modifier l\'image");
         }
     });

@@ -58,21 +58,19 @@ class Core extends \Hoa\Dispatcher\Kit {
 
             if (isset($security)) {
 
-                $errorMessage = [];
-                $errorMessage[] = "Le formulaire est mal remplis.";
+                $_SESSION['messagesWarning'][] = "Le formulaire est mal remplis.";
 
                 $errors = explode("|", $security);
 
                 foreach ($errors as $error) {
                     if ($error == "name") {
-                        $errorMessage[] = "Entrez un nom valide composé uniquement de lettres, chiffres et espaces.";
+                        $_SESSION['messagesWarning'][] = "Entrez un nom valide composé uniquement de lettres, chiffres et espaces.";
                     }
                     if ($error == "mail") {
-                        $errorMessage[] = "Entrez un mail valide.";
+                        $_SESSION['messagesWarning'][] = "Entrez un mail valide.";
                     }
                 }
 
-                $_SESSION['messagesWarning'][] = $errorMessage;
 
             } else {
 

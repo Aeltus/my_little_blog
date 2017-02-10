@@ -38,6 +38,16 @@ admin_post_add:
     controller:  Application\Controller\BlogPostController
     action:      addPost
 
+admin_post_delete:
+    path:        /delPost-(?<id>\d+)
+    controller:  Application\Controller\BlogPostController
+    action:      deletePost
+
+admin_post_update:
+    path:        /updatePost-(?<id>\d+)
+    controller:  Application\Controller\BlogPostController
+    action:      updatePost
+
 admin_tag_manage:
     path:        /admin_tags
     controller:  Application\Controller\TagController
@@ -48,6 +58,16 @@ admin_tag_add:
     controller:  Application\Controller\TagController
     action:      createNewTag
 
+admin_tag_update:
+    path:        /updateTag-(?<id>\d+)
+    controller:  Application\Controller\TagController
+    action:      updateTag
+
+admin_tag_delete:
+    path:        /delTag-(?<id>\d+)
+    controller:  Application\Controller\TagController
+    action:      deleteTag
+
 admin_medias_manager:
     path:        /admin_medias
     controller:  Application\Controller\BlogPostController
@@ -57,3 +77,13 @@ admin_comments_manager:
     path:        /admin_comments
     controller:  Application\Controller\CommentController
     action:      manageComments
+
+admin_comment_validate:
+    path:        /commentValidate-(?<id>\d+)
+    controller:  Application\Controller\CommentController
+    action:      commentValidate
+
+admin_comment_delete:
+    path:        /commentRefuse-(?<id>\d+)
+    controller:  Application\Controller\CommentController
+    action:      commentRefuse

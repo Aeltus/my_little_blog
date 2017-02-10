@@ -20,33 +20,33 @@ use Doctrine\ORM\Mapping as ORM;
 class Tag {
 
     /**
-     * @ORM\Column(name="idTag", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
-    private $idTag = null;
+    private $id = null;
 
     /**
      * @ORM\Column(name="name", type="string", nullable=false)
-     * @form champ=input|required=true|type=text|class=form-control|placeholder=Tag|label=Nom du tag|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Tag|label=Nom du tag|security=
      */
     private $name;
 
     /**
      * @ORM\Column(name="nbPosts", type="integer")
      *
-     * @form champ=input|type=hidden
+     * #form champ=input|type=hidden
      */
     private $nbPosts = 0;
 
     /**
      * @return null|integer
      */
-    public function getIdTag()
+    public function getid()
     {
-        return $this->idTag;
+        return $this->id;
     }
 
     /**
@@ -66,11 +66,11 @@ class Tag {
     }
 
     /**
-     * @param null|integer $idTag
+     * @param null|integer $id
      */
-    public function setIdTag($idTag)
+    public function setid($id)
     {
-        $this->idTag = $idTag;
+        $this->id = $id;
     }
 
     /**

@@ -21,11 +21,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Evaluation {
 
     /**
-     * @ORM\Column(name="idEvaluation", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idEvaluation = null;
+    private $id = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Application\Entity\BlogPost", cascade={"persist"})
@@ -41,9 +41,9 @@ class Evaluation {
     /**
      * @return null|integer
      */
-    public function getIdEvaluation()
+    public function getid()
     {
-        return $this->idEvaluation;
+        return $this->id;
     }
 
     /**
@@ -63,11 +63,11 @@ class Evaluation {
     }
 
     /**
-     * @param null|integer $idEvaluation
+     * @param null|integer $id
      */
-    public function setIdEvaluation($idEvaluation)
+    public function setid($id)
     {
-        $this->idEvaluation = $idEvaluation;
+        $this->id = $id;
     }
 
     /**

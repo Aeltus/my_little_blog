@@ -12,25 +12,25 @@ class Message {
 
     /**
      * @var string $name
-     * @form champ=input|required=true|type=text|class=form-control|placeholder=Votre nom ici|value=|security=#^[a-zA-Z0-9 ]+$#
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Votre nom ici|value=|security=#^[a-zA-Z0-9 ]+$#
      */
     private $name;
 
     /**
      * @var string $mail
-     * @form champ=input|required=true|type=email|class=form-control|placeholder=Votre mail ici|value=|security=#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#
+     * #form champ=input|required=true|type=email|class=form-control|placeholder=Votre mail ici|value=|security=#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#
      */
     private $mail;
 
     /**
      * @var string $subject
-     * @form champ=input|required=true|type=text|class=form-control|placeholder=Le sujet ici|value=|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Le sujet ici|value=|security=
      */
     private $subject;
 
     /**
      * @var string $message
-     * @form champ=textarea|required=true|rows=5|class=form-control|placeholder=Votre message ici|value=|security=
+     * #form champ=textarea|required=true|rows=5|class=form-control|placeholder=Votre message ici|value=|security=
      */
     private $message;
 

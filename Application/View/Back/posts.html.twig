@@ -9,9 +9,29 @@
             <a href="/add_post" class="btn btn-default">Ajouter un post</a>
         </div>
     </div>
+<div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <p>ICI se trouvera l'affichage des posts</p>
+        <div class="col-md-12 text-center">
+            <h2>Posts :</h2>
+            <table class="table-bordered table-hover text-center">
+                <tr><th class="text-center">Image d'entête</th><th class="text-center">Titre</th><th class="text-center">Chapô</th><th class="text-center"> Infos complémentaires </th> <th class="text-center"> Modifer </th><th class="text-center"> Supprimer </th></tr>
+                {% for post in posts %}
+                    <tr><td><img src="{{ post.headerPicture }}" class="browser_img"></td><td>{{ post.title }}
+                            {% if post.visible != true %}
+                                <p><strong>(Ce post n'est pas encore publié)</strong></p>
+                            {% endif %}
+                        </td><td>{{ post.hook }}</td>
+                        <td><u>Note :</u>
+                            {% if post.nbEvaluation == "" %}
+                                Pas encore d'évaluations
+                            {% else %}
+                            {{ post.evaluation }} ({{ post.nbEvaluation }} évaluations)
+                            {% endif %}<br />{{ post.nbComments }} commentaires<br /> <u>Dernière mise à jour le : </u>{{ post.lastUpdate|date('d/m/Y') }}</td>
+                        <td><a href="/updatePost-{{ post.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delPost-{{ post.id }}" class="btn btn-default">Supprimer</a></td></tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
+</div>
 
 {% endblock %}
