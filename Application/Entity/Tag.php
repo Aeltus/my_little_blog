@@ -30,7 +30,7 @@ class Tag {
 
     /**
      * @ORM\Column(name="name", type="string", nullable=false)
-     * #form champ=input|required=true|type=text|class=form-control|placeholder=Tag|label=Nom du tag|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Tag|label=Nom du tag|security=#^[a-zA-Z0-9 ]+$#
      */
     private $name;
 

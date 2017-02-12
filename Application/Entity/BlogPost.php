@@ -33,7 +33,7 @@ class BlogPost {
     /**
      * @ORM\Column(name="title", type="string", nullable=true)
      *
-     * #form champ=input|required=true|type=text|class=form-control|placeholder=Titre|label=Titre du post|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Titre|label=Titre du post|security=#^[a-zA-Z0-9 ]+$#
      */
     private $title;
 
@@ -61,7 +61,7 @@ class BlogPost {
     /**
      * @ORM\Column(name="author", type="string", nullable=false)
      *
-     * #form champ=input|required=true|type=text|class=form-control|placeholder=Nom de l'auteur de l'article|label=Auteur de l'article|security=
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Nom de l'auteur de l'article|label=Auteur de l'article|security=#^[a-zA-Z0-9 ]+$#
      */
     private $author;
 

@@ -5,8 +5,17 @@
  * Date: 08/02/2017
  * Time: 20:52
  */
+
+require_once "../autoload.php";
+
+use Application\Manager\FormFactory;
+
 session_start();
 $imgToDelete = __DIR__.'/Files/'.$_GET["picture"];
+
+$token = $_GET['token'];
+
+FormFactory::secureCSRF($token, 'DelMedia');
 
 
 if (unlink($imgToDelete)){

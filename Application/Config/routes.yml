@@ -39,7 +39,7 @@ admin_post_add:
     action:      addPost
 
 admin_post_delete:
-    path:        /delPost-(?<id>\d+)
+    path:        /delPost-(?<id>\d+)(?<token>\_t-[a-z0-9.]+$)
     controller:  Application\Controller\BlogPostController
     action:      deletePost
 
@@ -64,7 +64,7 @@ admin_tag_update:
     action:      updateTag
 
 admin_tag_delete:
-    path:        /delTag-(?<id>\d+)
+    path:        /delTag-(?<id>\d+)(?<token>\_t-[a-z0-9.]+$)
     controller:  Application\Controller\TagController
     action:      deleteTag
 
@@ -84,6 +84,6 @@ admin_comment_validate:
     action:      commentValidate
 
 admin_comment_delete:
-    path:        /commentRefuse-(?<id>\d+)
+    path:        /commentRefuse-(?<id>\d+)(?<token>\_t-[a-z0-9.]+$)
     controller:  Application\Controller\CommentController
     action:      commentRefuse

@@ -19,7 +19,7 @@
                                 <a href="/commentValidate-{{ comment.id }}" class="btn btn-default">Valider</a>
                                 {% endif %}
                             </td>
-                            <td><a href="/commentRefuse-{{ comment.id }}" class="btn btn-default">Supprimer</a></td>
+                            <td><a href="/commentRefuse-{{ comment.id }}_t-{{ token }}" class="btn btn-default">Supprimer</a></td>
                         </tr>
                     {% endfor %}
                 </table>

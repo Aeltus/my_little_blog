@@ -117,7 +117,7 @@
                                 {% else %}
                                 {{ post.evaluation }} ({{ post.nbEvaluation }} évaluations)
                                 {% endif %}<br />{{ post.nbComments }} commentaires<br /> <u>Dernière mise à jour le : </u>{{ post.lastUpdate|date('d/m/Y') }}</td>
-                            <td><a href="/updatePost-{{ post.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delPost-{{ post.id }}" class="btn btn-default">Supprimer</a></td></tr>
+                            <td><a href="/updatePost-{{ post.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delPost-{{ post.id }}_t-{{ token }}" class="btn btn-default">Supprimer</a></td></tr>
                     {% endfor %}
                 </table>
 

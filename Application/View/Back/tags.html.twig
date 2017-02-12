@@ -16,7 +16,7 @@
             <table class="table-bordered table-hover text-center">
             <tr><th class="text-center">Nom du tag</th><th class="text-center"> Modifer </th><th class="text-center"> Supprimer </th></tr>
             {% for tag in tags %}
-                <tr><td>{{ tag.name }}</td><td><a href="/updateTag-{{ tag.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delTag-{{ tag.id }}" class="btn btn-default">Supprimer</a></td></tr>
+                <tr><td>{{ tag.name }}</td><td><a href="/updateTag-{{ tag.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delTag-{{ tag.id }}_t-{{ token }}" class="btn btn-default">Supprimer</a></td></tr>
             {% endfor %}
         </table>
     </div>

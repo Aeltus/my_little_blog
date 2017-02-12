@@ -200,6 +200,13 @@ class FormFactory {
             $fields[] = $field;
 
         }
+
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION[$entity.'_token'] = $token;
+        $_SESSION[$entity.'_token_time'] = time();
+        $fields[] = "<input type=hidden name='token' id='token' value='".$token."'";
+
     return $fields;
     }
 
@@ -223,18 +230,25 @@ class FormFactory {
             foreach ($class->getProperties() as $attribute) {
 
                 $listParams = FormFactory::getParams($attribute);
-                $regex = rtrim($listParams['security']);
+                if (array_key_exists('security', $listParams)){
+                    $regex = rtrim($listParams['security']);
+                }
 
-                if (!empty($regex)){
+                if (isset($regex) &&!empty($regex)){
 
                     $funcName = "get".ucfirst($attribute->getName());
                     $value = $object->$funcName();
 
-                    if (!preg_match($regex, $value)){
+                    if (is_string($value)){
 
-                        $status[] = $attribute->getName();
+                        if (!preg_match($regex, $value)){
+
+                            $status[] = $attribute->getName();
+
+                        }
 
                     }
+
                 }
             }
 
@@ -248,6 +262,63 @@ class FormFactory {
 
 
     return $status;
+    }
+
+    /**
+     * @param $token
+     * @param $entity
+     * @return bool or redirect
+     */
+    public static function secureCSRF($token, $entity){
+
+        $response = false;
+
+        //check if token is in SESSION
+        if(isset($_SESSION[$entity.'_token']) && isset($_SESSION[$entity.'_token_time']))
+        {
+            //If SESSION token == form Token
+            if($_SESSION[$entity.'_token'] == $token)
+            {
+                //User has 15 min to validate the form
+                $timestamp_last = time() - (15*60);
+                //If token not expired
+                if($_SESSION[$entity.'_token_time'] >= $timestamp_last)
+                {
+
+                    // if refered adress is from local server
+                    $referedAdress = explode("/", $_SERVER['HTTP_REFERER']);
+                    if (in_array($_SERVER['HTTP_HOST'], $referedAdress)){
+                        $response = true;
+                    } else {
+                        $_SESSION['messagesDanger'][] = "Le formulaire doit être envoyé par le site :)";
+                    }
+
+                } else {
+
+                    $_SESSION['messagesDanger'][] = "Delai expiré";
+
+                }
+            } else {
+
+                $_SESSION['messagesDanger'][] = "Le token ne correspond pas";
+
+            }
+        } else {
+
+            $_SESSION['messagesDanger'][] = "Le formulaire doit être envoyé par le site :)";
+
+        }
+
+        // if no problems
+        if ($response == true){
+            return true;
+
+        // if a problem is set, stop the script.
+        } else {
+            header("Location: http://".$_SERVER['HTTP_HOST']."/admin");
+            exit();
+        }
+
     }
 
 

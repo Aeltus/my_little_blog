@@ -23,6 +23,14 @@ class CoreController extends \Hoa\Dispatcher\Kit {
     public function index () {
 
         $data = [];
+
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION['DelTag_token'] = $token;
+        $_SESSION['DelTag_token_time'] = time();
+
+        $data['token'] = $token;
+
         $data['form'] = FormFactory::build('Message');
 
         return array('layout' => 'Front/index.html.twig', 'data' => $data);
@@ -48,9 +56,13 @@ class CoreController extends \Hoa\Dispatcher\Kit {
 
             $message = new Message();
 
+            FormFactory::secureCSRF($_POST['token'], 'Message');
+
             foreach ($_POST as $key => $value) {
-                $funcName = "set" . ucfirst($key);
-                $message->$funcName($value);
+                if($key != 'token'){
+                    $funcName = "set" . ucfirst($key);
+                    $message->$funcName($value);
+                }
             }
 
             $security = FormFactory::security('Message', $message);
@@ -122,6 +134,13 @@ if (isset($message) && empty($security)){
 *                                       Form creating + return                                                         *
 *                                                                                                                      *
 *=====================================================================================================================*/
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION['Message_token'] = $token;
+        $_SESSION['Message_token_time'] = time();
+
+        $data['token'] = $token;
+
         if (isset($message) && !empty($security)){
             $data['form'] = FormFactory::build('Message', $message);
         } else {

@@ -52,6 +52,13 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         }
 
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION['DelBlogPost_token'] = $token;
+        $_SESSION['DelBlogPost_token_time'] = time();
+
+        $data['token'] = $token;
+
         // preparing datas to send to twig
         $data['tags'] = $em->getRepository('Application\Entity\Tag')->findAll();
         $data['search'] = ['visible' => $visible, 'limitStart' => $limitStart, 'number' => $number, 'tag' => $tag, 'orderBy' => $orderBy, 'order' => $order, 'search' => $search];
@@ -90,14 +97,18 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                 } else {
 
-                    // others attributes
-                    if (!empty($value)){
+                    if ($attribute != 'token'){
 
-                        if ($value == "on"){
-                            $value = true;
+                        // others attributes
+                        if (!empty($value)){
+
+                            if ($value == "on"){
+                                $value = true;
+                            }
+                            $funcName = "set".ucFirst($attribute);
+                            $post->$funcName($value);
+
                         }
-                        $funcName = "set".ucFirst($attribute);
-                        $post->$funcName($value);
 
                     }
 
@@ -105,13 +116,42 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
             }
 
-            $em->persist($post);
-            $em->flush();
+/*======================================================================================================================
+*                                                                                                                      *
+*                                  Security verifications before flush                                                 *
+*                                                                                                                      *
+*=====================================================================================================================*/
 
-            $_SESSION['messagesSuccess'][] = "Nouveau post enregistré";
-            header("Location: http://".$_SERVER['HTTP_HOST']."/admin_posts");
-            exit();
+            FormFactory::secureCSRF($_POST['token'], 'BlogPost');
 
+            $security = FormFactory::security('BlogPost', $post);
+
+            if (!empty($security)) {
+
+                foreach ($security as $error) {
+
+                    switch ($error){
+                        case "title":
+                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé uniquement de lettres, chiffres et espaces.";
+                        case "hook":
+                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
+                        case "author":
+                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                    }
+
+                }
+
+
+            // if $security is empty, then any error has been raised, so, we can flush
+            } else {
+
+                $em->persist($post);
+                $em->flush();
+
+                $_SESSION['messagesSuccess'][] = "Nouveau post enregistré";
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin_posts");
+                exit();
+            }
         }
 
 
@@ -150,6 +190,13 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         $data['pictures'] = $files;
 
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION['DelMedia_token'] = $token;
+        $_SESSION['DelMedia_token_time'] = time();
+
+        $data['token'] = $token;
+
         return array('layout' => 'Back/mediasManage.html.twig', 'data' => $data);
 
     }
@@ -165,7 +212,10 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
     /**
      * delete one post
      */
-    public function deletePost($id){
+    public function deletePost($id, $token){
+
+        $token = str_replace("_t-", "", $token);
+        FormFactory::secureCSRF($token, 'DelBlogPost');
 
         $em = GetDoctrine::getEM();
         $em->getRepository('Application\Entity\BlogPost')->delOnePost($id);
@@ -190,27 +240,33 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         // if we get $_POST, we set the $post whit the new values
         if (!empty($_POST)){
+
             $post->resetBool();
 
             foreach ($_POST as $attribute => $value){
 
-                if (strstr($attribute, 'tags-') != false){
+                // we can't set 'token' as attribute for $post
+                if ($attribute != 'token'){
 
-                    if ($value == 'on'){
-                        $idTag = str_replace('tags-', '', $attribute);
-                        $tag = $em->getRepository('Application\Entity\Tag')->findOneById($idTag);
-                        $post->addTag($tag);
-                    }
+                    if (strstr($attribute, 'tags-') != false){
 
-                } else {
-
-                    if (!empty($value)){
-
-                        if ($value == "on"){
-                            $value = true;
+                        if ($value == 'on'){
+                            $idTag = str_replace('tags-', '', $attribute);
+                            $tag = $em->getRepository('Application\Entity\Tag')->findOneById($idTag);
+                            $post->addTag($tag);
                         }
-                        $funcName = "set".ucFirst($attribute);
-                        $post->$funcName($value);
+
+                    } else {
+
+                        if (!empty($value)){
+
+                            if ($value == "on"){
+                                $value = true;
+                            }
+                            $funcName = "set".ucFirst($attribute);
+                            $post->$funcName($value);
+
+                        }
 
                     }
 
@@ -222,11 +278,43 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
             $lastUpdate = new \DateTime();
             $post->setLastUpdate($lastUpdate);
 
-            $em->flush();
+/*======================================================================================================================
+*                                                                                                                      *
+*                                  Security verifications before flush                                                 *
+*                                                                                                                      *
+*=====================================================================================================================*/
 
-            $_SESSION['messagesSuccess'][] = "Modification du post enregistrée";
-            header("Location: http://".$_SERVER['HTTP_HOST']."/admin_posts");
-            exit();
+            FormFactory::secureCSRF($_POST['token'], 'BlogPost');
+
+            $security = FormFactory::security('BlogPost', $post);
+
+            if (!empty($security)) {
+
+                foreach ($security as $error) {
+
+                    switch ($error){
+                        case "title":
+                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé uniquement de lettres, chiffres et espaces.";
+                        case "hook":
+                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
+                        case "author":
+                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                    }
+
+                }
+
+
+            // if $security is empty, then any error has been raised, so, we can flush
+            } else {
+
+                $em->flush();
+
+                $_SESSION['messagesSuccess'][] = "Modification du post enregistrée";
+                header("Location: http://".$_SERVER['HTTP_HOST']."/admin_posts");
+                exit();
+            }
+
+/*====================================================================================================================*/
 
         }
 

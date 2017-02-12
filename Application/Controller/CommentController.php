@@ -20,6 +20,13 @@ class CommentController extends \Hoa\Dispatcher\Kit{
         $em = GetDoctrine::getEM();
         $data['comments'] = $em->getRepository('Application\Entity\Comment')->getUnvalidatedComments();
 
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION['DelComment_token'] = $token;
+        $_SESSION['DelComment_token_time'] = time();
+
+        $data['token'] = $token;
+
         return array('layout' => 'Back/comments.html.twig', 'data' => $data);
 
     }
@@ -38,7 +45,10 @@ class CommentController extends \Hoa\Dispatcher\Kit{
 
     }
 
-    public function commentRefuse($id){
+    public function commentRefuse($id, $token){
+
+        $token = str_replace("_t-", "", $token);
+        FormFactory::secureCSRF($token, 'DelComment');
 
         $em = GetDoctrine::getEM();
 
