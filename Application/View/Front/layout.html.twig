@@ -7,13 +7,13 @@
     <title>{% block title %}{% endblock %}</title>
 
     <!-- Bootstrap -->
-    <link href="Application/View/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Application/View/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Application/View/css/jquery.bxslider.css">
-    <link rel="stylesheet" type="text/css" href="Application/View/css/isotope.css" media="screen" />
-    <link rel="stylesheet" href="Application/View/css/animate.css">
-    <link rel="stylesheet" href="Application/View/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
-    <link href="Application/View/css/style.css" rel="stylesheet">
+    <link href="Application/View/Front/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Application/View/Front/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Application/View/Front/css/jquery.bxslider.css">
+    <link rel="stylesheet" type="text/css" href="Application/View/Front/css/isotope.css" media="screen" />
+    <link rel="stylesheet" href="Application/View/Front/css/animate.css">
+    <link rel="stylesheet" href="Application/View/Front/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <link href="Application/View/Front/css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -45,7 +45,7 @@
                     </button>
                     <div class="navbar-brand col-md-12">
                         <div class="row">
-                            <p><a href="index.html"><h1><span>D</span>ANJARD <span>D</span>avid</h1></a>
+                            <p><a href="/"><h1><span>D</span>ANJARD <span>D</span>avid</h1></a>
                             <h4>&nbsp- Développeur d'application - 32 ans</h4></p>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="menu">
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation"><a href="/">Accueil</a></li>
-                            <li role="presentation"><a href="/article-1">Blog</a></li>
+                            <li role="presentation"><a href="/blog">Blog</a></li>
                             <li role="presentation"><a href="/contact">Contact</a></li>
                         </ul>
                     </div>
@@ -80,8 +80,9 @@
                 <nav class="foot-nav">
                     <ul>
                         <li><a href="/">Accueil</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="/contact">Contact</a></li>
+                        <li><a href="/admin">Admin</a></li>
                     </ul>
                 </nav>
                 <div class="clear"></div>
@@ -93,15 +94,19 @@
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="Application/View/js/jquery-2.1.1.min.js"></script>
+<script src="Application/View/Front/js/jquery-2.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="Application/View/js/bootstrap.min.js"></script>
-<script src="Application/View/js/wow.min.js"></script>
-<script src="Application/View/js/fancybox/jquery.fancybox.pack.js"></script>
-<script src="Application/View/js/jquery.easing.1.3.js"></script>
-<script src="Application/View/js/jquery.bxslider.min.js"></script>
-<script src="Application/View/js/functions.js"></script>
+<script src="Application/View/Front/js/bootstrap.min.js"></script>
+<script src="Application/View/Front/js/wow.min.js"></script>
+<script src="Application/View/Front/js/fancybox/jquery.fancybox.pack.js"></script>
+<script src="Application/View/Front/js/jquery.easing.1.3.js"></script>
+<script src="Application/View/Front/js/jquery.bxslider.min.js"></script>
+<script src="Application/View/Front/js/functions.js"></script>
 <script>wow = new WOW({}).init();</script>
-
+<script type="text/javascript">
+    $(function() {
+            $(".alert").fadeOut(5000, 'linear');
+    });
+</script>
 </body>
 </html>

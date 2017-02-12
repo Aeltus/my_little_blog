@@ -7,12 +7,15 @@
  *
  */
 
-require ("Application/autoload.php");
+require_once ("Application/autoload.php");
 
 use Hoa\Router\Http;
 use Hoa\Dispatcher\Basic;
 use Hoa\Router\Exception\NotFound;
 use Symfony\Component\Yaml\Yaml;
+
+session_start();
+
 
 /* Instantiation of twig
  ---------------------------------------------------------------------------------------------------------------------*/
@@ -38,6 +41,18 @@ try {
     }
 
     $response = $dispatcher->dispatch($router);
+
+    // take the messages in $_SESSION to send it to the vue
+    $messagesTypes = array('messagesSuccess', 'messagesInfo', 'messagesWarning', 'messagesDanger');
+
+    foreach ($messagesTypes as $type){
+
+        if (isset($_SESSION[$type])){
+            $response['data'][$type] = $_SESSION[$type];
+            unset($_SESSION[$type]);
+    }
+
+    }
 
     echo $twig->render($response['layout'], $response['data']);
 

@@ -1,19 +1,89 @@
 index:
     path:        /
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      index
 
 index_2:
     path:
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      index
 
 contact:
     path:        /contact
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      contact
 
 mailer:
     path:        /mailer
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      mailer
+
+blog_main_page:
+    path:        /blog
+    controller:  Application\Controller\BlogPostController
+    action:      blogMainPage
+
+admin_index:
+    path:        /admin
+    controller:  Application\Controller\BlogPostController
+    action:      indexAdmin
+
+admin_post_manage:
+    path:        /admin_posts
+    controller:  Application\Controller\BlogPostController
+    action:      index
+
+admin_post_add:
+    path:        /add_post
+    controller:  Application\Controller\BlogPostController
+    action:      addPost
+
+admin_post_delete:
+    path:        /delPost-(?<id>\d+)(?<token>\_t-[a-z0-9.]+$)
+    controller:  Application\Controller\BlogPostController
+    action:      deletePost
+
+admin_post_update:
+    path:        /updatePost-(?<id>\d+)
+    controller:  Application\Controller\BlogPostController
+    action:      updatePost
+
+admin_tag_manage:
+    path:        /admin_tags
+    controller:  Application\Controller\TagController
+    action:      manageTags
+
+admin_tag_add:
+    path:        /add_tag
+    controller:  Application\Controller\TagController
+    action:      createNewTag
+
+admin_tag_update:
+    path:        /updateTag-(?<id>\d+)
+    controller:  Application\Controller\TagController
+    action:      updateTag
+
+admin_tag_delete:
+    path:        /delTag-(?<id>\d+)(?<token>\_t-[a-z0-9.]+$)
+    controller:  Application\Controller\TagController
+    action:      deleteTag
+
+admin_medias_manager:
+    path:        /admin_medias
+    controller:  Application\Controller\BlogPostController
+    action:      mediasManage
+
+admin_comments_manager:
+    path:        /admin_comments
+    controller:  Application\Controller\CommentController
+    action:      manageComments
+
+admin_comment_validate:
+    path:        /commentValidate-(?<id>\d+)
+    controller:  Application\Controller\CommentController
+    action:      commentValidate
+
+admin_comment_delete:
+    path:        /commentRefuse-(?<id>\d+)(?<token>\_t-[a-z0-9.]+$)
+    controller:  Application\Controller\CommentController
+    action:      commentRefuse

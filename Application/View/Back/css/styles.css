@@ -1,0 +1,57 @@
+.row {
+    padding-top: 10px;
+}
+
+.browser_img{
+    max-width: 250px;
+}
+
+.top-10{
+    padding-top: 10px;
+}
+
+.btn {
+    margin: 10px 10px 10px 10px;
+}
+
+table{
+    width: 100%;
+}
+
+th {
+    padding: 10px 10px 10px 10px
+}
+
+fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+    width:inherit;
+    padding:0 10px;
+    border-bottom:none;
+}
+
+fieldset>label{
+    margin-left: 30px;
+}
+
+.posts-paginator{
+    margin-top: 25px;
+    text-align: right;
+}
+
+#search{
+    width: 100%;
+    margin-top: 12px;
+}
+
+#messages{
+    position: absolute;
+    width: 100%;
+    z-index: 500;
+}

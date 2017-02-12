@@ -1,0 +1,167 @@
+{% extends "Back/layout.html.twig" %}
+
+{% block title %}Administration des Posts{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <a href="/add_post" class="btn btn-default">Ajouter un post</a>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h2>Posts :</h2>
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                               Search form                                                            #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+            <div class="adminForm">
+                <form action="" method="post" role="form">
+
+                    <div class="row">
+                        <label for="visible">Post visible :</label>
+                        <select name="visible" id="visible">
+                            <option value="2" {% if search.visible == '2' %}selected{% endif %}>Tous</option>
+                            <option value="1" {% if search.visible == '1' %}selected{% endif %}>Oui</option>
+                            <option value="0" {% if search.visible == '0' %}selected{% endif %}>Non</option>
+                        </select>
+
+                        <label for="number">Posts par pages :</label>
+                        <select name="number" id="number">
+                            <option value="5" {% if search.number == 5 %}selected{% endif %}>5</option>
+                            <option value="10" {% if search.number == 10 %}selected{% endif %}>10</option>
+                            <option value="20" {% if search.number == 20 %}selected{% endif %}>20</option>
+                            <option value="50" {% if search.number == 50 %}selected{% endif %}>50</option>
+                            <option value="100" {% if search.number == 100 %}selected{% endif %}>100</option>
+                        </select>
+
+                        <label for="orderBy">Trié par :</label>
+                        <select name="orderBy" id="orderBy">
+                            <option value="lastUpdate" {% if search.orderBy == 'lastUpdate' %}selected{% endif %}>Date</option>
+                            <option value="evaluation" {% if search.orderBy == 'evaluation' %}selected{% endif %}>Evaluation</option>
+                            <option value="nbComments" {% if search.orderBy == 'nbComments' %}selected{% endif %}>Nombre de commentaires</option>
+                            <option value="nvViews" {% if search.orderBy == 'nbViews' %}selected{% endif %}>Nombre de vues</option>
+                        </select>
+
+                        <label for="tag">Disposant du tag :</label>
+                        <select name="tag" id="tag">
+                            <option value="all" {% if search.tag == NULL %}selected{% endif %}>Tous</option>
+                            {% for tag in tags %}}
+                                <option value="{{ tag.id }}" {% if search.tag == tag.id %}selected{% endif %}>{{ tag.name }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <label for="order">Ordre :</label>
+                        <select name="order" id="order">
+                            <option value="DESC" {% if search.order == 'DESC' %}selected{% endif %}>Décroissant</option>
+                            <option value="ASC" {% if search.order == 'ASC' %}selected{% endif %}>Croissant</option>
+                        </select>
+
+                        <input type="hidden" id="next-page" name="next-page" value="{{ pagination.start + pagination.number }}"/>
+                        <input type="hidden" id="page" name="page" value="{{ pagination.start }}"/>
+                        <input type="hidden" id="prev-page" name="prev-page" value="{{ pagination.start - pagination.number }}"/>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-10"><input type="text" name="search" id="search" placeholder="Votre recherche ici" value="{{ search.search }}"/></div><div class="col-md-2"><span class="btn btn-default search-btn">Rechercher</i></span></div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            {% if pagination.start != 0 %}
+                                <div class="btn btn-default prev-btn"><< Précédent</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-2 col-md-offset-3 text-center"><button type="submit" class="btn" id="form-btn">Trier</button></div>
+
+                        <div class="col-md-3 posts-paginator">
+                            <p>Page : {{ ((pagination.start+1) // pagination.number)+1 }} Sur : {{ (pagination.total/pagination.number)|round(0, 'ceil') }}</p>
+                        </div>
+
+                        <div class="col-md-2">
+                            {% if pagination.start + pagination.number <= pagination.total %}
+                                <div class="btn btn-default next-btn">Suivant >></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                             Table of posts                                                           #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+            {% if posts is not empty %}
+                <table class="table-bordered table-hover text-center">
+                    <tr><th class="text-center">Image d'entête</th><th class="text-center">Titre</th><th class="text-center">Chapô</th><th class="text-center"> Infos complémentaires </th> <th class="text-center"> Modifer </th><th class="text-center"> Supprimer </th></tr>
+                    {% for post in posts %}
+                        <tr><td><img src="{{ post.headerPicture }}" class="browser_img"></td><td>{{ post.title }}
+                                {% if post.visible != true %}
+                                    <p><strong>(Ce post n'est pas encore publié)</strong></p>
+                                {% endif %}
+                            </td><td>{{ post.hook }}</td>
+                            <td><u>Note :</u>
+                                {% if post.nbEvaluation == "" %}
+                                    Pas encore d'évaluations
+                                {% else %}
+                                {{ post.evaluation }} ({{ post.nbEvaluation }} évaluations)
+                                {% endif %}<br />{{ post.nbComments }} commentaires<br /> <u>Dernière mise à jour le : </u>{{ post.lastUpdate|date('d/m/Y') }}</td>
+                            <td><a href="/updatePost-{{ post.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delPost-{{ post.id }}_t-{{ token }}" class="btn btn-default">Supprimer</a></td></tr>
+                    {% endfor %}
+                </table>
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                               Pagination                                                             #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+                <div class="col-md-12">
+
+                    <div class="col-md-2">
+                        {% if pagination.start != 0 %}
+                            <div class="btn btn-default prev-btn"><< Précédent</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-4 col-md-offset-4 posts-paginator">
+                        <p>Page : {{ ((pagination.start+1) // pagination.number)+1 }} Sur : {{ (pagination.total/pagination.number)|round(0, 'ceil') }}</p>
+                    </div>
+
+                    <div class="col-md-2">
+                        {% if pagination.start + pagination.number <= pagination.total %}
+                            <div class="btn btn-default next-btn">Suivant >></div>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                           If not posts found                                                         #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+            {% else %}
+                <p>Aucun post ne correspond à votre recherche.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<!--=================================================================================================================-->
+{% endblock %}
