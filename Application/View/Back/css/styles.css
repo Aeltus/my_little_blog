@@ -39,3 +39,19 @@ legend.scheduler-border {
 fieldset>label{
     margin-left: 30px;
 }
+
+.posts-paginator{
+    margin-top: 25px;
+    text-align: right;
+}
+
+#search{
+    width: 100%;
+    margin-top: 12px;
+}
+
+#messages{
+    position: absolute;
+    width: 100%;
+    z-index: 500;
+}

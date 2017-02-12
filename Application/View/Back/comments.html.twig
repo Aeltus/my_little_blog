@@ -7,20 +7,26 @@
     <div class="row">
         <div class="col-md-12">
 
-            <table class="table-bordered table-hover text-center">
-                <tr><th class="text-center">Commentaire</th><th class="text-center"> Valider </th><th class="text-center"> Refuser </th></tr>
-                {% for comment in comments %}
-                    <tr><td>{{ comment.comment }} </br /> <u>Commentaire posté sur :</u> {{ comment.post.title }}<br /><u>Par :</u> {{ comment.author }} <u>Le :</u> {{ comment.created|date('d/m/Y') }}</td>
-                        <td>{% if comment.published == true %}
-                            Commentaire déjà validé
-                            {% else %}
-                            <a href="/commentValidate-{{ comment.id }}" class="btn btn-default">Valider</a>
-                            {% endif %}
-                        </td>
-                        <td><a href="/commentRefuse-{{ comment.id }}" class="btn btn-default">Supprimer</a></td>
-                    </tr>
-                {% endfor %}
-            </table>
+            <h2>Gestion des commentaires :</h2>
+                {% if comments is not empty %}
+                <table class="table-bordered table-hover text-center">
+                    <tr><th class="text-center">Commentaire</th><th class="text-center"> Valider </th><th class="text-center"> Refuser </th></tr>
+                    {% for comment in comments %}
+                        <tr><td>{{ comment.comment }} </br /> <u>Commentaire posté sur :</u> {{ comment.post.title }}<br /><u>Par :</u> {{ comment.author }} <u>Le :</u> {{ comment.created|date('d/m/Y') }}</td>
+                            <td>{% if comment.published == true %}
+                                Commentaire déjà validé
+                                {% else %}
+                                <a href="/commentValidate-{{ comment.id }}" class="btn btn-default">Valider</a>
+                                {% endif %}
+                            </td>
+                            <td><a href="/commentRefuse-{{ comment.id }}" class="btn btn-default">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                    {% else %}
+                    <p>Aucun commentaire à valider</p>
+                {% endif %}
+
 
         </div>
     </div>

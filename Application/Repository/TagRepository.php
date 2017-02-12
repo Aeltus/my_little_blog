@@ -22,7 +22,7 @@ class TagRepository extends EntityRepository{
 
         return $qb
             ->getQuery()
-            ->getResult()
+            ->execute()
         ;
     }
 

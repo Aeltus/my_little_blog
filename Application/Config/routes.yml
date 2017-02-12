@@ -1,21 +1,21 @@
 index:
     path:        /
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      index
 
 index_2:
     path:
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      index
 
 contact:
     path:        /contact
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      contact
 
 mailer:
     path:        /mailer
-    controller:  Application\Controller\Core
+    controller:  Application\Controller\CoreController
     action:      mailer
 
 blog_main_page:

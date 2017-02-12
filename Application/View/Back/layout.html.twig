@@ -70,7 +70,7 @@
 #                                                Messages                                                              #
 #                                                                                                                      #
 =====================================================================================================================-->
-            <div class="container">
+            <div class="container text-center" id="messages">
                 <div class="row">
 
                     {% if messagesSuccess is defined %}
@@ -151,11 +151,24 @@
 <script type="text/javascript">
     $(function() {
         var headerPicture = $("#headerPicture").val();
-        $(".alert").fadeOut(3000, 'linear');
+        $(".alert").fadeOut(5000, 'linear');
         if (headerPicture != ""){
             $("#substitute").html("<img src='"+headerPicture+"' class='browser_img'/>");
             $("#imageFinder").text("Modifier l\'image");
         }
+        $(".next-btn").click(function(){
+            var page = $("#next-page").val();
+            $("#page").attr("value", page);
+            $("#form-btn").click();
+        });
+        $(".prev-btn").click(function(){
+            var page = $("#prev-page").val();
+            $("#page").attr("value", page);
+            $("#form-btn").click();
+        });
+        $(".search-btn").click(function () {
+            $("#form-btn").click();
+        });
     });
 </script>
 

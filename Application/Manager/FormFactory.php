@@ -23,14 +23,12 @@ class FormFactory {
     public static function build ($entity, $obj = NULL){
 
         $class = new ReflectionClass('Application\Entity\\'.$entity);
-        $x = 0;
 
-        $listParams = FormFactory::getParams($entity);
-
-
+        // for each attribute found in Entity
         foreach ($class->getProperties() as $attribute) {
 
-            $params = $listParams[$x];
+            // get the params in DocString of the Entity
+            $params = FormFactory::getParams($attribute);
             $textareaValue = "";
             
             // set the values in $params from the object values
@@ -52,18 +50,21 @@ class FormFactory {
 
             $field = "<div class=\"form-group\">\n";
 
+            // if property "label" found set the label for the field
             if (array_key_exists('label',$params) && !array_key_exists('externalAttribute', $params)){
 
                 $field .= '<label for="'.$attribute->getName().'">'.$params['label'].'</label>';
 
             }
 
+            // if property "button" found set a button
             if (array_key_exists('button', $params)){
 
                 $field .= '<a href="Application/FileBrowser/browser.php" target="_blank" class="btn btn-default" id="'.$params['button'].'">Ajouter une image</a>';
 
             }
 
+            // if property "remplacedBy" found, set the substitute of the field
             if (array_key_exists('remplacedBy', $params)){
 
                 if ($params['remplacedBy'] == 'pictureFinder'){
@@ -72,12 +73,16 @@ class FormFactory {
 
             }
 
+            // if property "externalAttribute" found, get the external attributes fields (this is for arrayCollections)
             if (array_key_exists('externalAttribute', $params)){
 
                 $em = GetDoctrine::getEM();
+
+                // get the differents Entities linked to the arrayCollections
                 $inputs = $em->getRepository('Application\Entity\\'.$params['externalAttribute'])->findAll();
                 $field .= '<fieldset class="scheduler-border"><legend class="scheduler-border">'.ucfirst($attribute->getName()).':</legend>';
 
+                // for each external attribute found, set the differents fields corresponding
                 foreach ($inputs as $input){
 
 
@@ -98,7 +103,7 @@ class FormFactory {
                     }
 
 
-
+                    // set the differents fields from params
                     foreach ($params as $param => $value) {
 
                         // cleanning
@@ -142,10 +147,13 @@ class FormFactory {
 
                 }
             $field .= '</fielset>';
+
+            // if field is not an external attribute
             } else {
 
                 $field .= "<";
 
+                // set the differents fields froms params
                 foreach ($params as $param => $value) {
 
                     // cleanning
@@ -191,8 +199,6 @@ class FormFactory {
             $field .= "\n</div>";
             $fields[] = $field;
 
-            $x++;
-
         }
     return $fields;
     }
@@ -200,22 +206,24 @@ class FormFactory {
     /**
      * @param string $entity
      * @param $object
-     * @return string $status
+     *
+     * check secutity param as REGEX. If not corresponding, set $status[] as name of the attribute which cause problems
+     * else $status returned empty
+     *
+     * @return array $status or empty array
      */
     public static function security($entity, $object){
 
         $status = NULL;
         $class = new ReflectionClass("Application\Entity\\".$entity);
+        $status = [];
 
         if ($class->isInstance($object)){
 
-            $class = new ReflectionClass('Application\Entity\\'.$entity);
-            $listParams = FormFactory::getParams($entity);
-            $x=0;
-
             foreach ($class->getProperties() as $attribute) {
 
-                $regex = rtrim($listParams[$x]['security']);
+                $listParams = FormFactory::getParams($attribute);
+                $regex = rtrim($listParams['security']);
 
                 if (!empty($regex)){
 
@@ -224,15 +232,10 @@ class FormFactory {
 
                     if (!preg_match($regex, $value)){
 
-                        if (isset($status)){
-                            $status .= "|".$attribute->getName();
-                        } else {
-                            $status = $attribute->getName();
-                        }
-                    }
+                        $status[] = $attribute->getName();
 
+                    }
                 }
-                $x++;
             }
 
 
@@ -249,46 +252,56 @@ class FormFactory {
 
 
     /**
-     * @param string $entity
+     * @param reflectedClass $attribute
      *
      * @return array
      *
-     * get the @form parameters for a form, from phpDoc in an entity
+     * get the #form parameters for a form, from phpDoc in an entity
      */
-    public static function getParams($entity){
+    private static function getParams($attribute){
 
-        $handle = fopen("Application/Entity/".$entity.".php", "r");
+        // get the docComment
+        $docComment = $attribute->getDocComment();
+        $listParams = NULL;
 
-        if ($handle) {
+        //get lines and clean it
+        if (!empty($docComment)){
 
-            while (($buffer = fgets($handle, 4096)) !== false) {
+            $lines = explode("\n", $docComment);
 
-                $line = explode(" ", $buffer);
+            // get docString lines and clean it
+            foreach ($lines as $line){
 
-                if (isset($line[6])) {
+                $unautorizedChars = ["/**", "/*", "*", "*/", "/"];
 
-                    if ($line[6] == "#form") {
+                foreach ($unautorizedChars as $unautorizedChar){
 
-                        $data = explode("|", $buffer);
-                        $data[0] = substr($data[0], 13);
+                    $line = str_replace($unautorizedChar, "", $line);
 
-                        foreach ($data as $param) {
-                            $content = explode("=", $param);
-                            $params[$content[0]] = $content[1];
+                }
+
+                // split params
+                if(!empty(trim($line))){
+
+                    $cleannedLine = trim($line);
+                    $params = explode(" ", $cleannedLine);
+                    $key = trim($params[0]);
+
+                    // take the params for #form and put it in an array
+                    $value = trim(str_replace($key, "", $cleannedLine));
+                    if ($key == "#form"){
+
+                        $parsedParams = explode("|", $value);
+                        foreach ($parsedParams as $parsedParam){
+                            $detailParam = explode("=", $parsedParam);
+
+                            // set listParams array as : listparams[param] => value
+                            $listParams[$detailParam[0]] = $detailParam[1];
                         }
-
-                        $listParams[] = $params;
-                        $params = [];
-
                     }
+
                 }
             }
-
-            if (!feof($handle)) {
-                echo "Erreur: fgets() a échoué\n";
-            }
-            fclose($handle);
-
         }
 
         return $listParams;

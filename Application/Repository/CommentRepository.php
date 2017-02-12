@@ -23,6 +23,21 @@ class CommentRepository extends EntityRepository{
 
         return $qb
             ->getQuery()
+            ->execute()
+            ;
+    }
+
+    public function getUnvalidatedComments(){
+
+        $qb = $this->createQueryBuilder('a');
+
+        $qb ->select('a')
+            ->where('a.published = false')
+            ->orderBy('a.id', 'DESC')
+        ;
+
+        return $qb
+            ->getQuery()
             ->getResult()
             ;
     }

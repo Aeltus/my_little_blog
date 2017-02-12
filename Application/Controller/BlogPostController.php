@@ -23,11 +23,40 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     public function index(){
 
+        // All variables are set to the default values
         $data = [];
+        $visible = '2';
+        $limitStart = 0;
+        $number = 10;
+        $tag = NULL;
+        $orderBy = 'lastUpdate';
+        $order = 'DESC';
+        $search = NULL;
 
         $em = GetDoctrine::getEM();
 
-        $data['posts'] = $em->getRepository('Application\Entity\BlogPost')->findAll();
+        // if $_POST send variables ares setted to the $_POST values
+        if (!empty($_POST)){
+
+            $visible = (int)$_POST['visible'];
+            $number = (int)$_POST['number'];
+            $orderBy = $_POST['orderBy'];
+            $order = $_POST['order'];
+            if ($_POST['tag'] != 'all'){
+                $tag = (int)$_POST['tag'];
+            }
+            $limitStart = (int)$_POST['page'];
+            if (!empty($_POST['search'])){
+                $search = $_POST['search'];
+            }
+
+        }
+
+        // preparing datas to send to twig
+        $data['tags'] = $em->getRepository('Application\Entity\Tag')->findAll();
+        $data['search'] = ['visible' => $visible, 'limitStart' => $limitStart, 'number' => $number, 'tag' => $tag, 'orderBy' => $orderBy, 'order' => $order, 'search' => $search];
+        $data['posts'] = $em->getRepository('Application\Entity\BlogPost')->getPosts($visible, $limitStart, $number, $tag, $orderBy, $order, $search);
+        $data['pagination'] = ["start" => $limitStart, "number" => $number, "total" => count($data['posts'])];
 
         return array('layout' => 'Back/posts.html.twig', 'data' => $data);
 
@@ -37,18 +66,22 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         $data = [];
 
+        // if $_POST receved
         if (!empty($_POST)){
 
             $em = GetDoctrine::getEM();
 
             $post = new BlogPost();
 
+            //$_POST keys are same as BlogPost Attribute names
             foreach ($_POST as $attribute => $value){
 
+                // if attribute contain "tags-" it is a tag, and the number after is the id of the tag
                 if (strstr($attribute, 'tags-') != false){
 
                     if ($value == true){
 
+                        //so, we can get the Tag entity and addIt into the BlogPost entity
                         $idTag = str_replace('tags-', '', $attribute);
                         $tag = $em->getRepository('Application\Entity\Tag')->findOneById($idTag);
                         $post->addTag($tag);
@@ -57,6 +90,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                 } else {
 
+                    // others attributes
                     if (!empty($value)){
 
                         if ($value == "on"){
@@ -70,7 +104,6 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                 }
 
             }
-
 
             $em->persist($post);
             $em->flush();
@@ -88,6 +121,10 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     }
 
+
+    /**
+     * show all pictures stored on the server
+     */
     public function mediasManage(){
 
         $data = [];
@@ -102,7 +139,9 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                 if($file != '.' && $file != '..'){
 
                     $exploded = explode(".", $file);
-                    $files[$exploded[0]] = $exploded[1];
+                    if (in_array($exploded[1], $autorizedExtentions)){
+                        $files[$exploded[0]] = $exploded[1];
+                    }
 
                 }
 
@@ -110,8 +149,6 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
         }
 
         $data['pictures'] = $files;
-
-
 
         return array('layout' => 'Back/mediasManage.html.twig', 'data' => $data);
 
@@ -125,6 +162,9 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     }
 
+    /**
+     * delete one post
+     */
     public function deletePost($id){
 
         $em = GetDoctrine::getEM();
@@ -136,17 +176,21 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     }
 
+    /**
+     * @param $id
+     *
+     * update a post
+     */
     public function updatePost($id){
         $data = [];
 
+        // we get the post we are modifying
         $em = GetDoctrine::getEM();
         $post = $em->getRepository('Application\Entity\BlogPost')->findOneById($id);
 
+        // if we get $_POST, we set the $post whit the new values
         if (!empty($_POST)){
             $post->resetBool();
-
-            $em->flush();
-
 
             foreach ($_POST as $attribute => $value){
 
@@ -186,6 +230,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         }
 
+        // if we don't receved $_POST $post serves to hydrate the form
         $data['form'] = FormFactory::build("BlogPost", $post);
 
         return array('layout' => 'Back/updatePost.html.twig', 'data' => $data);

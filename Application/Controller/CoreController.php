@@ -13,7 +13,7 @@ use Application\Manager\FormFactory;
 use Symfony\Component\Yaml\Yaml;
 
 
-class Core extends \Hoa\Dispatcher\Kit {
+class CoreController extends \Hoa\Dispatcher\Kit {
 
     /**
      * index web page
@@ -56,13 +56,11 @@ class Core extends \Hoa\Dispatcher\Kit {
             $security = FormFactory::security('Message', $message);
 
 
-            if (isset($security)) {
+            if (!empty($security)) {
 
                 $_SESSION['messagesWarning'][] = "Le formulaire est mal remplis.";
 
-                $errors = explode("|", $security);
-
-                foreach ($errors as $error) {
+                foreach ($security as $error) {
                     if ($error == "name") {
                         $_SESSION['messagesWarning'][] = "Entrez un nom valide composé uniquement de lettres, chiffres et espaces.";
                     }
@@ -85,7 +83,7 @@ class Core extends \Hoa\Dispatcher\Kit {
 *                                           Mail sender                                                                *
 *                                                                                                                      *
 *=====================================================================================================================*/
-if (isset($message) && !isset($security)){
+if (isset($message) && empty($security)){
 
     // transport creating
     $valuesConfig = Yaml::parse(file_get_contents('Application/Config/Private/mail.yml'));
@@ -112,7 +110,7 @@ if (isset($message) && !isset($security)){
     // sending
     if (!$mailer->send($email, $failures))
     {
-        $data['messagesDanger'] = $failures;
+        $data['messagesDanger'][] = $failures;
     }
 
 }
@@ -124,7 +122,7 @@ if (isset($message) && !isset($security)){
 *                                       Form creating + return                                                         *
 *                                                                                                                      *
 *=====================================================================================================================*/
-        if (isset($message) && isset($security)){
+        if (isset($message) && !empty($security)){
             $data['form'] = FormFactory::build('Message', $message);
         } else {
             $data['form'] = FormFactory::build('Message');

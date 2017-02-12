@@ -18,7 +18,7 @@ class CommentController extends \Hoa\Dispatcher\Kit{
         $data = [];
 
         $em = GetDoctrine::getEM();
-        $data['comments'] = $em->getRepository('Application\Entity\Comment')->findAll();
+        $data['comments'] = $em->getRepository('Application\Entity\Comment')->getUnvalidatedComments();
 
         return array('layout' => 'Back/comments.html.twig', 'data' => $data);
 
@@ -42,7 +42,7 @@ class CommentController extends \Hoa\Dispatcher\Kit{
 
         $em = GetDoctrine::getEM();
 
-        $comment = $em->getRepository('Application\Entity\Comment')->delOneComment($id);
+        $em->getRepository('Application\Entity\Comment')->delOneComment($id);
 
         $_SESSION['messagesSuccess'][] = "Commentaire supprimé";
         header("Location: http://".$_SERVER['HTTP_HOST']."/admin_comments");
