@@ -23,32 +23,44 @@ class Comment {
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * #form champ=input|type=hidden
      */
     private $id = null;
 
     /**
-     * @ORM\Column(name="comment", type="string")
-     */
-    private $comment;
-
-    /**
      * @ORM\Column(name="author", type="string", nullable=false)
+     *
+     * #form champ=input|required=true|type=text|class=search inputSearch|placeholder=Votre nom|label=Nom|security=#^[a-zA-Z0-9 ]+$#
      */
     private $author;
 
     /**
+     * @ORM\Column(name="comment", type="string")
+     *
+     * #form champ=textarea|required=true|rows=5|class=search inputSearch|placeholder=Votre commentaire|label=Votre commentaire|security=
+     */
+    private $comment;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Application\Entity\BlogPost")
      * @ORM\JoinColumn(nullable=false)
+     *
+     * #form champ=input|type=hidden
      */
-    private $Post;
+    private $post;
 
     /**
      * @ORM\Column(name="published", type="boolean", nullable=false)
+     *
+     * #form champ=input|type=hidden
      */
-    private $published = null;
+    private $published = false;
 
     /**
      * @ORM\Column(name="created", type="datetime")
+     *
+     * #form champ=input|type=hidden
      */
     private $created;
 
@@ -78,7 +90,7 @@ class Comment {
      */
     public function getPost()
     {
-        return $this->Post;
+        return $this->post;
     }
 
     /**
@@ -124,9 +136,9 @@ class Comment {
     /**
      * @param integer $idPost
      */
-    public function setPost(BlogPost $Post)
+    public function setPost(BlogPost $post)
     {
-        $this->idPost = $Post;
+        $this->post = $post;
     }
 
     /**

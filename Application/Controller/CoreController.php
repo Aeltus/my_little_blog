@@ -24,10 +24,15 @@ class CoreController extends \Hoa\Dispatcher\Kit {
 
         $data = [];
 
+        if (!isset($_SESSION['cookies'])){
+            $data['messageCookies'] = "En poursuivant la navigation sur ce site, vous acceptez l'utilisation des cookies.";
+            $_SESSION['cookies'] = TRUE;
+        }
+
         //security token
         $token = uniqid(rand(), true);
-        $_SESSION['DelTag_token'] = $token;
-        $_SESSION['DelTag_token_time'] = time();
+        $_SESSION['Message_token'] = $token;
+        $_SESSION['Message_token_time'] = time();
 
         $data['token'] = $token;
 
@@ -100,6 +105,7 @@ if (isset($message) && empty($security)){
     // transport creating
     $valuesConfig = Yaml::parse(file_get_contents('Application/Config/Private/mail.yml'));
 
+
     $transport = \Swift_SmtpTransport::newInstance($valuesConfig['mail']['server'], $valuesConfig['mail']['port'], $valuesConfig['mail']['security'])
         ->setUsername($valuesConfig['mail']['id'])
         ->setPassword($valuesConfig['mail']['password'])
@@ -113,7 +119,7 @@ if (isset($message) && empty($security)){
 
         ->setFrom(array($message->getMail() => $message->getName()))
 
-        ->setTo(array('david.danjard@gmail.com' => 'David DANJARD'))
+        ->setTo(array($valuesConfig['mail']['sendTo'] => $valuesConfig['mail']['sendToName']))
 
         ->setBody($message->getMessage())
 

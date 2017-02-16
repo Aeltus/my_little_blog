@@ -8,6 +8,8 @@
 namespace Application\Controller;
 
 use Application\Entity\BlogPost;
+use Application\Entity\Comment;
+use Application\Entity\Evaluation;
 use Application\Manager\FormFactory;
 use Application\Manager\GetDoctrine;
 
@@ -23,6 +25,11 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     public function index(){
 
+        if ( $_SERVER['REQUEST_URI'] == '/admin_posts' ){
+            $layout = 'Back/posts.html.twig';
+        } else {
+            $layout = 'Front/blogMainPage.html.twig';
+        }
         // All variables are set to the default values
         $data = [];
         $visible = '2';
@@ -65,8 +72,130 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
         $data['posts'] = $em->getRepository('Application\Entity\BlogPost')->getPosts($visible, $limitStart, $number, $tag, $orderBy, $order, $search);
         $data['pagination'] = ["start" => $limitStart, "number" => $number, "total" => count($data['posts'])];
 
-        return array('layout' => 'Back/posts.html.twig', 'data' => $data);
+        return array('layout' => $layout, 'data' => $data);
 
+    }
+
+    public function viewPostById($id){
+
+        $data = [];
+        $em = GetDoctrine::getEM();
+        $post = $em->getRepository('Application\Entity\BlogPost')->find($id);
+        $nbViews = $post->getNbViews();
+        $nbViews++;
+        $post->setNbViews($nbViews);
+        $em->flush();
+
+        if(!empty($_POST)){
+
+            // if evaluation receved
+            if(isset($_POST['note']) && $_POST['note'] < 11){
+                $note = (int)$_POST['note'];
+
+                $evaluation = new Evaluation();
+                $evaluation->setScore($note);
+                $evaluation->setIdPost($id);
+                $em->persist($evaluation);
+
+                $evaluations = $em->getRepository('Application\Entity\Evaluation')->getEvaluationsForPost($id);
+                $nbEval = count($evaluations) + 1;
+
+                $evalSum = 0;
+                foreach ($evaluations as $eval){
+                    $evalSum = $evalSum + $eval->getScore();
+                }
+
+                $evalSum = $evalSum + $note;
+
+                $average = $evalSum / $nbEval;
+
+                $post->setNbEvaluation($nbEval);
+                $post->setEvaluation($average);
+
+                $messageSuccess = "Votre note à bien été prise en compte.";
+
+
+                // set a cookie, an user can rate a post only one time
+                if (isset($_COOKIE['evaluations'])){
+                    $postsRated = unserialize($_COOKIE['evaluations']);
+                } else {
+                    $postsRated = [];
+                }
+
+                $postsRated[] = $id;
+
+                $cookie = serialize($postsRated);
+                setcookie('evaluations', $cookie, time() + 365*24*60*60, null, null, false, true);
+                $data['rated'] = true;
+
+            }
+
+            // if comment receved
+            if (isset($_POST['comment'])){
+
+                $comment = new Comment();
+                $comment->setAuthor($_POST['author']);
+                $comment->setComment($_POST['comment']);
+                $comment->setPost($post);
+                $em->persist($comment);
+
+                $security = FormFactory::security('Comment', $comment);
+                $messageSuccess = "Votre commentaire à bien été enregistré, il sera en ligne après validation.";
+
+            }
+
+/*======================================================================================================================
+*                                                                                                                      *
+*                                  Security verifications before flush                                                 *
+*                                                                                                                      *
+*=====================================================================================================================*/
+
+            FormFactory::secureCSRF($_POST['token'], 'Comment');
+            if (!empty($security)) {
+
+                foreach ($security as $error) {
+
+                    switch ($error){
+                        case "author":
+                            $_SESSION['messagesWarning'][] = "Nom invalide, seulement des lettres et des espaces autorisés.";
+
+                    }
+
+                }
+            } else {
+                $em->flush();
+                $_SESSION['messagesSuccess'][] = $messageSuccess;
+
+            }
+
+        }
+
+        $data['post'] = $post;
+        $data['comments'] = $em->getRepository('Application\Entity\Comment')->getCommentsForPost($id);
+
+
+        if (isset($comment) && !empty($security)){
+            $data['form'] = FormFactory::build('Comment', $comment);
+        } else {
+            $data['form'] = FormFactory::build('Comment');
+        }
+
+        //security token
+        $token = uniqid(rand(), true);
+        $_SESSION['Comment_token'] = $token;
+        $_SESSION['Comment_token_time'] = time();
+        $data['token'] = $token;
+
+        //get cookie
+        if (isset($_COOKIE['evaluations'])) {
+            $cookie = unserialize($_COOKIE['evaluations']);
+
+            if (in_array($id, $cookie)) {
+                $data['rated'] = true;
+            }
+        }
+
+        return array('layout' => 'Front/article.html.twig', 'data' => $data);
     }
 
     public function addPost(){
@@ -198,14 +327,6 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
         $data['token'] = $token;
 
         return array('layout' => 'Back/mediasManage.html.twig', 'data' => $data);
-
-    }
-
-    public function blogMainPage(){
-
-        $data = [];
-
-        return array('layout' => 'Front/blogMainPage.html.twig', 'data' => $data);
 
     }
 

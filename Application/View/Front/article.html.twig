@@ -1,73 +1,201 @@
 {% extends "Front/layout.html.twig" %}
 
-{% block title %}Article{% endblock %}
+{% block title %}Article numero {{ post.id }}{% endblock %}
+
 
 {% block content %}
-    <!--====================================================================================================================
-    #                                                                                                                      #
-    #                                                Messages                                                              #
-    #                                                                                                                      #
-    =====================================================================================================================-->
-    <div class="container messages">
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                             Post (right column)                                                      #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+    <div class="container text-center" id="postContainer">
         <div class="row">
-
-            {% if messagesSuccess is defined and messagesAlert is not defined %}
-
-                <div class="alert alert-success">
-
-                    {% for message in messagesSuccess %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
-            {% if messagesInfo is defined %}
-
-                <div class="alert alert-info">
-
-                    {% for message in messagesInfo %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
-            {% if messagesWarning is defined %}
-
-                <div class="alert alert-warning">
-
-                    {% for message in messagesWarning %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
-            {% if messagesDanger is defined %}
-
-                <div class="alert alert-danger">
-
-                    {% for message in messagesDanger %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
+            <div class="col-md-12 title-post">
+                <h1>{{ post.title }}</h1>
+            </div>
         </div>
-    </div>
-    <!--=================================================================================================================-->
-
-
-    <div class="container">
         <div class="row">
-            <h1>Rien à afficher pour l'instant</h1>
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    <strong>Ecris par :</strong> {{ post.author }}
+                </div>
+                <div class="col-md-12">
+                    <strong>Dernière mise à jour le :</strong> {{ post.lastUpdate|date('d/m/Y') }}
+                </div>
+                <div class="col-md-12">
+                    <strong>Vu :</strong> {{ post.nbViews }} fois
+                </div>
+                <div class="col-md-12">
+                    <strong>Commenté :</strong> {{ post.nbComments }} fois
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <strong>Note moyenne :</strong>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-12 stars">
+                            {% if post.evaluation > 0 %}
+                                {% set x = 0 %}
+                                {% set nbStars = post.evaluation // 1 %}
+                                {% for i in 0..9 %}
+                                    {% if x < nbStars %}
+                                    <img src="Application/View/Front/img/star.png" class="star" />
+                                    {% elseif x == nbStars %}
+                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.49) %}
+                                            <img src="Application/View/Front/img/halfStar.png" class="star" />
+                                        {% else %}
+                                            <img src="Application/View/Front/img/greyStar.png" class="star" />
+                                        {% endif %}
+                                    {% else %}
+                                        <img src="Application/View/Front/img/greyStar.png" class="star" />
+                                    {% endif %}
+                                    {% set x = x + 1 %}
+                                {% endfor %}
+                                <div class="col-md-12">
+                                    {{ post.evaluation|round(2) }} / 10 : évalué {{ post.nbEvaluation }} fois.
+                                </div>
+                            {% else %}
+                                Aucune note n'a encoré été attribuée.
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <strong>Extrait :</strong><br />
+                    {{ post.hook }}
+                </div>
+                {% if rated is empty %}
+                    <div class="col-md-12 note">
+                        <a class="btn" id="note-btn"><i class="fa fa-star-o fa-lg"></i> Apportez votre note.</a>
+                    </div>
+                    <div class="col-md-12 noteForm">
+                        <form action="" method="post" role="form" class="">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="note">Votre note :</label>
+                                    <select name="note" id="note" class="searchInput">
+                                        <option value="10" selected>10</option>
+                                        <option value="9">9</option>
+                                        <option value="8">8</option>
+                                        <option value="7">7</option>
+                                        <option value="6">6</option>
+                                        <option value="5">5</option>
+                                        <option value="4">4</option>
+                                        <option value="3">3</option>
+                                        <option value="2">2</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                                    <input type=hidden id="idPost" name="idPost" value="{{ post.id }}"/>
+                                    <input type=hidden id="token" name="token" value="{{ token }}"/>
+                                <div class="col-md-4 text-center">
+                                    <button type="submit" class="btn" id="form-btn">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                {% else %}
+                    <div class="col-md-12 text-center note">
+                        <strong>Vous avez déjà noté ce post.</strong>
+                    </div>
+                {% endif %}
+            </div>
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                              Post (left column)                                                      #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+            <div class="col-md-8">
+                <div class="col-md-12 img_post">
+                    <img src="{{ post.headerPicture }}" class="imgHeaderPost">
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 contentPost">
+                {{ post.content|raw }}
+            </div>
+        </div>
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                                       Tags                                                           #
+#                                                                                                                      #
+=====================================================================================================================-->
+        <div class="row">
+            <div class="col-md-9 tags">
+                <strong>Tags :</strong>
+                {% if post.tags is not empty %}
+
+                    {% set tagCounter = 0 %}
+                    {% for tag in post.tags %}
+
+                        {% if tagCounter > 0 and tagCounter < post.tags|length %}
+                             /
+                        {% endif %}
+
+                        {{ tag.name }}
+                        {% set tagCounter = tagCounter + 1 %}
+                    {% endfor %}
+
+                {% endif %}
+            </div>
+            <div class="col-md-3 text-center">
+                <a href="/updatePost-{{ post.id }}" class="btn" id="update-btn">Modifier ce post</a>
+            </div>
+        </div>
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                                     Comments                                                         #
+#                                                                                                                      #
+=====================================================================================================================-->
+        {% if post.commentsActivated == TRUE %}
+            <div class="row">
+                <div class="col-md-2 titleComments">
+                    <p><strong><u>Commentaires :</u></strong></p>
+                </div>
+                <div class="col-md-3 col-md-offset-7 text-center">
+                    <a class="btn" id="addComment">Ajouter un comentaire</a>
+                </div>
+                <div class="col-md-12 commentForm text-center">
+                    <div class="col-md-10 col-md-offset-1">
+                        <form action="" method="post" role="form" class="">
+                            {% for input in form %}
+                                {{ input|raw }}
+                            {% endfor %}
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn" id="form-btn">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-12 comments">
+                    {% if comments is not empty %}
+                        {% for comment in comments %}
+                            <div class="col-md-10 col-md-offset-1 comment">
+                                <div class="row commentL1"><strong>Auteur :</strong> {{ comment.author }} <strong>Le :</strong> {{ comment.created|date('d/m/Y') }}</div>
+                                <div class="row commentL2">{{ comment.comment }}</div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+<!--=================================================================================================================-->
 
     </div>
 

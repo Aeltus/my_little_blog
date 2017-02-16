@@ -21,7 +21,12 @@ mailer:
 blog_main_page:
     path:        /blog
     controller:  Application\Controller\BlogPostController
-    action:      blogMainPage
+    action:      index
+
+blog_article_page:
+    path:        /article-(?<id>\d+)
+    controller:  Application\Controller\BlogPostController
+    action:      viewPostById
 
 admin_index:
     path:        /admin

@@ -101,7 +101,7 @@ class BlogPost {
     private $nbComments = 0;
 
     /**
-     * @ORM\Column(name="evaluation", type="decimal", nullable=true)
+     * @ORM\Column(name="evaluation", type="float", nullable=true)
      *
      * #form champ=input|type=hidden
      */
