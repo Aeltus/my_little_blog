@@ -27,16 +27,18 @@
 
     <div class="col-md-12 text-center" id="cookies">
         {% if messageCookies is defined %}
-            <div class="row alert alert-danger">
-                <a>
+            <a href>
+                <div class="row alert alert-danger">
+
                     <div class="col-md-3 col-md-offset-9 exit">
                         compris ! <i class="fa fa-times-circle-o fa-lg"></i>
                     </div>
                     <div class="col-md-12">
                         {{ messageCookies }}
                     </div>
-                </a>
-            </div>
+
+                </div>
+            </a>
         {% endif %}
     </div>
 

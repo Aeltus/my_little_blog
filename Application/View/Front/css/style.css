@@ -707,7 +707,7 @@ a.scrollup:hover{
 	margin: auto;
 	margin-top: 5px;
 	border: 1px solid dimgrey;
-	min-height: 490px;
+	min-height: 580px;
 	max-width: 90%;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -717,7 +717,7 @@ a.scrollup:hover{
 }
 
 #postContainer{
-	margin-top: 5px;
+	margin-top: 25px;
 	margin-bottom: 20px;
 	border: 1px solid dimgrey;
 	padding-left: 10px;
@@ -830,6 +830,10 @@ a.scrollup:hover{
 
 .smallText{
 	font-size: 1rem;
+}
+
+.pagination{
+	padding-top: 10px;
 }
 
 /* ========================================

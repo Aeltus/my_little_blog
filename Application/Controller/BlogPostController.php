@@ -42,10 +42,12 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         $em = GetDoctrine::getEM();
 
-        // if $_POST send variables ares setted to the $_POST values
+        // if $_POST send variables are setted to the $_POST values
         if (!empty($_POST)){
 
-            $visible = (int)$_POST['visible'];
+            if (isset($_POST['visible'])){
+                $visible = (int)$_POST['visible'];
+            }
             $number = (int)$_POST['number'];
             $orderBy = $_POST['orderBy'];
             $order = $_POST['order'];
@@ -88,8 +90,12 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         if(!empty($_POST)){
 
+
             // if evaluation receved
             if(isset($_POST['note']) && $_POST['note'] < 11){
+
+                FormFactory::secureCSRF($_POST['token'], 'Score');
+
                 $note = (int)$_POST['note'];
 
                 $evaluation = new Evaluation();
@@ -133,6 +139,8 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
             // if comment receved
             if (isset($_POST['comment'])){
 
+                FormFactory::secureCSRF($_POST['token'], 'Comment');
+
                 $comment = new Comment();
                 $comment->setAuthor($_POST['author']);
                 $comment->setComment($_POST['comment']);
@@ -140,6 +148,11 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                 $em->persist($comment);
 
                 $security = FormFactory::security('Comment', $comment);
+
+                if (strlen($_POST['comment']) > 255){
+                    $security[] = "commentLen";
+                }
+
                 $messageSuccess = "Votre commentaire à bien été enregistré, il sera en ligne après validation.";
 
             }
@@ -150,7 +163,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 *                                                                                                                      *
 *=====================================================================================================================*/
 
-            FormFactory::secureCSRF($_POST['token'], 'Comment');
+
             if (!empty($security)) {
 
                 foreach ($security as $error) {
@@ -158,6 +171,8 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                     switch ($error){
                         case "author":
                             $_SESSION['messagesWarning'][] = "Nom invalide, seulement des lettres et des espaces autorisés.";
+                        case "commentLen":
+                            $_SESSION['messagesWarning'][] = "Commentaire trop long, 255 caractères maximum.";
 
                     }
 
@@ -182,8 +197,8 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         //security token
         $token = uniqid(rand(), true);
-        $_SESSION['Comment_token'] = $token;
-        $_SESSION['Comment_token_time'] = time();
+        $_SESSION['Score_token'] = $token;
+        $_SESSION['Score_token_time'] = time();
         $data['token'] = $token;
 
         //get cookie
@@ -255,6 +270,16 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
             $security = FormFactory::security('BlogPost', $post);
 
+            if (strlen($post->getAuthor()) > 255){
+                $security[] = 'authorLen';
+            }
+            if (strlen($post->getTitle()) > 255){
+            $security[] = 'titleLen';
+            }
+            if (strlen($post->getHook()) > 255){
+            $security[] = 'hookLen';
+            }
+
             if (!empty($security)) {
 
                 foreach ($security as $error) {
@@ -266,6 +291,12 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                             $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
                         case "author":
                             $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                        case "hookLen":
+                        $_SESSION['messagesWarning'][] = "Chapô trop long, 255 caractères maximum.";
+                        case "authorLen":
+                            $_SESSION['messagesWarning'][] = "Nom d'auteur trop long, 255 caractères maximum.";
+                        case "titleLen":
+                            $_SESSION['messagesWarning'][] = "Titre trop long, 255 caractères maximum.";
                     }
 
                 }
@@ -283,8 +314,11 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
             }
         }
 
-
-        $data['form'] = FormFactory::build('BlogPost');
+        if (isset($post)){
+            $data['form'] = FormFactory::build('BlogPost',$post);
+        } else {
+            $data['form'] = FormFactory::build('BlogPost');
+        }
 
         return array('layout' => 'Back/addPost.html.twig', 'data' => $data);
 

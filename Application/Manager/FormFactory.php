@@ -300,7 +300,7 @@ class FormFactory {
                 }
             } else {
 
-                $_SESSION['messagesDanger'][] = "Le token ne correspond pas";
+                $_SESSION['messagesDanger'][] = "Le token ne correspond pas.";
 
             }
         } else {

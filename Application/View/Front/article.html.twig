@@ -1,6 +1,6 @@
 {% extends "Front/layout.html.twig" %}
 
-{% block title %}Article numero {{ post.id }}{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 
 
 {% block content %}
@@ -44,7 +44,7 @@
                                     {% if x < nbStars %}
                                     <img src="Application/View/Front/img/star.png" class="star" />
                                     {% elseif x == nbStars %}
-                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.49) %}
+                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.5) %}
                                             <img src="Application/View/Front/img/halfStar.png" class="star" />
                                         {% else %}
                                             <img src="Application/View/Front/img/greyStar.png" class="star" />
