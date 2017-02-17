@@ -196,7 +196,7 @@ class FormFactory {
                 }
             }
             $field .= "<div class=\"validation\"></div>";
-            $field .= "\n</div>";
+            $field .= "</div>";
             $fields[] = $field;
 
         }
@@ -205,7 +205,7 @@ class FormFactory {
         $token = uniqid(rand(), true);
         $_SESSION[$entity.'_token'] = $token;
         $_SESSION[$entity.'_token_time'] = time();
-        $fields[] = "<input type=hidden name='token' id='token' value='".$token."'";
+        $fields[] = "<input type=hidden name='token' id='token' value='".$token."' />";
 
     return $fields;
     }
@@ -300,7 +300,7 @@ class FormFactory {
                 }
             } else {
 
-                $_SESSION['messagesDanger'][] = "Le token ne correspond pas";
+                $_SESSION['messagesDanger'][] = "Le token ne correspond pas.";
 
             }
         } else {
@@ -315,7 +315,7 @@ class FormFactory {
 
         // if a problem is set, stop the script.
         } else {
-            header("Location: http://".$_SERVER['HTTP_HOST']."/admin");
+            header("Location: http://".$_SERVER['HTTP_HOST']);
             exit();
         }
 

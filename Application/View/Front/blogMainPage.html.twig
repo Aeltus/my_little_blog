@@ -3,72 +3,180 @@
 {% block title %}Blog{% endblock %}
 
 {% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Posts :</h2>
+
 <!--====================================================================================================================
 #                                                                                                                      #
-#                                                Messages                                                              #
+#                                               Search form                                                            #
 #                                                                                                                      #
 =====================================================================================================================-->
-    <div class="container messages">
-        <div class="row">
 
-            {% if messagesSuccess is defined and messagesAlert is not defined %}
+                <div class="searchForm">
+                    <form action="" method="post" role="form" class="">
 
-                <div class="alert alert-success">
+                        <div class="row">
 
-                    {% for message in messagesSuccess %}
-                        {{ message }} <br />
+                            <label for="number">Posts par pages :</label>
+                            <select name="number" id="number" class="searchInput">
+                                <option value="5" {% if search.number == 5 %}selected{% endif %}>5</option>
+                                <option value="10" {% if search.number == 10 %}selected{% endif %}>10</option>
+                                <option value="20" {% if search.number == 20 %}selected{% endif %}>20</option>
+                                <option value="50" {% if search.number == 50 %}selected{% endif %}>50</option>
+                                <option value="100" {% if search.number == 100 %}selected{% endif %}>100</option>
+                            </select>
+
+                            <label for="orderBy">Trié par :</label>
+                            <select name="orderBy" id="orderBy" class="searchInput">
+                                <option value="lastUpdate" {% if search.orderBy == 'lastUpdate' %}selected{% endif %}>Date</option>
+                                <option value="evaluation" {% if search.orderBy == 'evaluation' %}selected{% endif %}>Evaluation</option>
+                                <option value="nbComments" {% if search.orderBy == 'nbComments' %}selected{% endif %}>Nombre de commentaires</option>
+                                <option value="nbViews" {% if search.orderBy == 'nbViews' %}selected{% endif %}>Nombre de vues</option>
+                            </select>
+
+                            <label for="tag">Disposant du tag :</label>
+                            <select name="tag" id="tag" class="searchInput">
+                                <option value="all" {% if search.tag == NULL %}selected{% endif %}>Tous</option>
+                                {% for tag in tags %}}
+                                    <option value="{{ tag.id }}" {% if search.tag == tag.id %}selected{% endif %}>{{ tag.name }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <label for="order">Ordre :</label>
+                            <select name="order" id="order" class="searchInput">
+                                <option value="DESC" {% if search.order == 'DESC' %}selected{% endif %}>Décroissant</option>
+                                <option value="ASC" {% if search.order == 'ASC' %}selected{% endif %}>Croissant</option>
+                            </select>
+
+                            <input type="hidden" id="next-page" name="next-page" value="{{ pagination.start + pagination.number }}"/>
+                            <input type="hidden" id="page" name="page" value="{{ pagination.start }}"/>
+                            <input type="hidden" id="prev-page" name="prev-page" value="{{ pagination.start - pagination.number }}"/>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-10">
+                                <input type="text" class="searchInput search" name="search" placeholder="Votre recherche ici" value="{{ search.search }}"/>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <span class="btn search-btn"><i class="fa fa-search"></i>  Rechercher</span>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                {% if pagination.start != 0 %}
+                                    <div class="btn prev-btn"><< Précédent</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-2 col-md-offset-3 text-center"><button type="submit" class="btn" id="form-btn">Trier</button></div>
+
+                            <div class="col-md-3 posts-paginator">
+                                <p>Page : {{ ((pagination.start+1) // pagination.number)+1 }} Sur : {{ (pagination.total/pagination.number)|round(0, 'ceil') }}</p>
+                            </div>
+
+                            <div class="col-md-2">
+                                {% if pagination.start + pagination.number < pagination.total %}
+                                    <div class="btn next-btn">Suivant >></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                             Table of posts                                                           #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+                {% if posts is not empty %}
+                    {% set nbPosts = 4 %}
+                    {% for post in posts %}
+                        {% if nbPosts > 3 %}
+                            <div class="row">
+                            {% set nbPosts = 1 %}
+                        {% endif %}
+
+                                <div class="col-md-4 postFrame">
+
+                                    <div class="postLabel"">
+                                        {% if post.headerPicture is not empty %}
+                                        <div class="col-md-12">
+                                            <a href="/article-{{ post.id }}"><img class="headerPictureLabel" src="{{ post.headerPicture }}" /></a>
+                                        </div>
+                                        {% endif %}
+                                        <div class="col-md-12 label-title">
+                                            <a href="/article-{{ post.id }}"><h3>{{ post.title }}</h3></a>
+                                        </div>
+                                        <div class="col-md-12 label-date">
+                                            <p><u>Créé par :</u> {{ post.author }}</u><br />Dernière modification le :</u> {{ post.lastUpdate|date('d/m/Y') }}</p>
+                                        </div>
+                                        <div class="col-md-12 label-hook">
+                                            <p>{{ post.hook }}</p>
+                                        </div>
+                                        <div class="col-md-12 label-btn">
+                                            <div class="col-md-2 col-md-offset-3">
+                                                <a href="/article-{{ post.id }}"><div class="btn">Voir en détail</div></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                {% set nbPosts = nbPosts + 1 %}
+                        {% if nbPosts > 3 %}
+                            </div>
+                        {% endif %}
                     {% endfor %}
 
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                               Pagination                                                             #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+                    <div class="col-md-12 pagination">
+
+                            <div class="col-md-2">
+                                {% if pagination.start != 0 %}
+                                    <div class="btn prev-btn"><< Précédent</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-2 col-md-offset-8">
+                                {% if pagination.start + pagination.number < pagination.total %}
+                                    <div class="btn next-btn">Suivant >></div>
+                                {% endif %}
+                            </div>
+
+                    </div>
+
+<!--=================================================================================================================-->
+
+<!--====================================================================================================================
+#                                                                                                                      #
+#                                            If no posts found                                                         #
+#                                                                                                                      #
+=====================================================================================================================-->
+
+                    {% else %}
+                        <p>Aucun post ne correspond à votre recherche.</p>
+                    {% endif %}
                 </div>
-
-            {% endif %}
-
-            {% if messagesInfo is defined %}
-
-                <div class="alert alert-info">
-
-                    {% for message in messagesInfo %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
-            {% if messagesWarning is defined %}
-
-                <div class="alert alert-warning">
-
-                    {% for message in messagesWarning %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
-            {% if messagesDanger is defined %}
-
-                <div class="alert alert-danger">
-
-                    {% for message in messagesDanger %}
-                        {{ message }} <br />
-                    {% endfor %}
-
-                </div>
-
-            {% endif %}
-
+            </div>
         </div>
     </div>
 <!--=================================================================================================================-->
 
 
-    <div class="container">
-        <div class="row">
-            <h1>Rien à afficher pour l'instant</h1>
-        </div>
-
-    </div>
 
 {% endblock %}

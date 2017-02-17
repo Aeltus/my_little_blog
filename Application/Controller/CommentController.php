@@ -38,7 +38,15 @@ class CommentController extends \Hoa\Dispatcher\Kit{
         $comment = $em->getRepository('Application\Entity\Comment')->findOneById($id);
         $comment->setPublished(true);
 
+        $idPost = $comment->getPost()->getId();
+
+        $post = $em->getRepository('Application\Entity\BlogPost')->findOneById($idPost);
+        $totComments = $post->getNbComments();
+        $totComments++;
+        $post->setNbComments($totComments);
+
         $em->flush();
+
         $_SESSION['messagesSuccess'][] = "Commentaire validé";
         header("Location: http://".$_SERVER['HTTP_HOST']."/admin_comments");
         exit();

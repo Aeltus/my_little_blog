@@ -42,4 +42,22 @@ class CommentRepository extends EntityRepository{
             ;
     }
 
+    public function getCommentsForPost($id){
+
+        $qb = $this->createQueryBuilder('c');
+
+        $qb ->select('c')
+            ->where('c.published = true')
+            ->andWhere('c.post = :id')
+            ->setParameter('id', $id)
+            ->orderBy('c.id', 'DESC')
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
 }

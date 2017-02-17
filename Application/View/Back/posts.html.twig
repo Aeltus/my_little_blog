@@ -26,9 +26,9 @@
                     <div class="row">
                         <label for="visible">Post visible :</label>
                         <select name="visible" id="visible">
-                            <option value="2" {% if search.visible == '2' %}selected{% endif %}>Tous</option>
                             <option value="1" {% if search.visible == '1' %}selected{% endif %}>Oui</option>
                             <option value="0" {% if search.visible == '0' %}selected{% endif %}>Non</option>
+                            <option value="2" {% if search.visible == '2' %}selected{% endif %}>Tous</option>
                         </select>
 
                         <label for="number">Posts par pages :</label>
@@ -45,7 +45,7 @@
                             <option value="lastUpdate" {% if search.orderBy == 'lastUpdate' %}selected{% endif %}>Date</option>
                             <option value="evaluation" {% if search.orderBy == 'evaluation' %}selected{% endif %}>Evaluation</option>
                             <option value="nbComments" {% if search.orderBy == 'nbComments' %}selected{% endif %}>Nombre de commentaires</option>
-                            <option value="nvViews" {% if search.orderBy == 'nbViews' %}selected{% endif %}>Nombre de vues</option>
+                            <option value="nbViews" {% if search.orderBy == 'nbViews' %}selected{% endif %}>Nombre de vues</option>
                         </select>
 
                         <label for="tag">Disposant du tag :</label>
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="col-md-2">
-                            {% if pagination.start + pagination.number <= pagination.total %}
+                            {% if pagination.start + pagination.number < pagination.total %}
                                 <div class="btn btn-default next-btn">Suivant >></div>
                             {% endif %}
                         </div>
@@ -142,7 +142,7 @@
                     </div>
 
                     <div class="col-md-2">
-                        {% if pagination.start + pagination.number <= pagination.total %}
+                        {% if pagination.start + pagination.number < pagination.total %}
                             <div class="btn btn-default next-btn">Suivant >></div>
                         {% endif %}
                     </div>
@@ -153,7 +153,7 @@
 
 <!--====================================================================================================================
 #                                                                                                                      #
-#                                           If not posts found                                                         #
+#                                            If no posts found                                                         #
 #                                                                                                                      #
 =====================================================================================================================-->
 

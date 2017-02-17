@@ -17,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  * @ORM\Table(name="mlb_evaluation")
+ * @ORM\Entity(repositoryClass="Application\Repository\EvaluationRepository")
  */
 class Evaluation {
 

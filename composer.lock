@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4b7692efe4b9f2ae4c2eb5e62dd1f26c",
-    "content-hash": "393e2695d85757006642b4a8e6b9086c",
+    "hash": "16e0a32066c0cfb2793d4cffa6636604",
+    "content-hash": "6ec1108f7c0b35df8ccf53fbcd6bfb25",
     "packages": [
         {
             "name": "ckeditor/ckeditor",
@@ -328,16 +328,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.11",
+            "version": "v2.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "1b1effbddbdc0f40d1c8f849f44bcddac4f52a48"
+                "reference": "7b9e911f9d8b30d43b96853dab26898c710d8f44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/1b1effbddbdc0f40d1c8f849f44bcddac4f52a48",
-                "reference": "1b1effbddbdc0f40d1c8f849f44bcddac4f52a48",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/7b9e911f9d8b30d43b96853dab26898c710d8f44",
+                "reference": "7b9e911f9d8b30d43b96853dab26898c710d8f44",
                 "shasum": ""
             },
             "require": {
@@ -395,7 +395,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-02-04 21:20:13"
+            "time": "2017-02-08 12:53:47"
         },
         {
             "name": "doctrine/inflector",
@@ -1038,16 +1038,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.5",
+            "version": "v5.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "cd142238a339459b10da3d8234220963f392540c"
+                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
-                "reference": "cd142238a339459b10da3d8234220963f392540c",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
+                "reference": "81fdccfaf8bdc5d5d7a1ef6bb3a61bbb1a6c4a3e",
                 "shasum": ""
             },
             "require": {
@@ -1088,7 +1088,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-12-29 10:02:40"
+            "time": "2017-02-13 07:52:53"
         },
         {
             "name": "symfony/console",

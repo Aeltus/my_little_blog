@@ -33,7 +33,7 @@ class BlogPost {
     /**
      * @ORM\Column(name="title", type="string", nullable=true)
      *
-     * #form champ=input|required=true|type=text|class=form-control|placeholder=Titre|label=Titre du post|security=#^[a-zA-Z0-9 ]+$#
+     * #form champ=input|required=true|type=text|class=form-control|placeholder=Titre|label=Titre du post|security=#^[a-zA-Z0-9 .:]+$#
      */
     private $title;
 
@@ -101,7 +101,7 @@ class BlogPost {
     private $nbComments = 0;
 
     /**
-     * @ORM\Column(name="evaluation", type="decimal", nullable=true)
+     * @ORM\Column(name="evaluation", type="float", nullable=true)
      *
      * #form champ=input|type=hidden
      */
