@@ -39,6 +39,11 @@ class Evaluation {
      */
     private $score;
 
+    public function __construct($score, $idPost){
+        $this->score = $score;
+        $this->idPost = $idPost;
+    }
+
     /**
      * @return null|integer
      */

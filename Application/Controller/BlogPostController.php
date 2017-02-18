@@ -98,9 +98,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                 $note = (int)$_POST['note'];
 
-                $evaluation = new Evaluation();
-                $evaluation->setScore($note);
-                $evaluation->setIdPost($id);
+                $evaluation = new Evaluation($note, $id);
                 $em->persist($evaluation);
 
                 $evaluations = $em->getRepository('Application\Entity\Evaluation')->getEvaluationsForPost($id);
@@ -142,9 +140,6 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                 FormFactory::secureCSRF($_POST['token'], 'Comment');
 
                 $comment = new Comment();
-                $comment->setAuthor($_POST['author']);
-                $comment->setComment($_POST['comment']);
-                $comment->setPost($post);
                 $em->persist($comment);
 
                 $security = FormFactory::security('Comment', $comment);

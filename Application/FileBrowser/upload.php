@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Created by PhpSt||m.
  * User: Davis
  * Date: 07/02/2017
  * Time: 21:02
@@ -11,25 +11,25 @@ session_start();
 function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE, $ext){
 
     //Test1: extension
-    if ($extensions !== FALSE AND !in_array($ext,$extensions)){
+    if ($extensions !== FALSE && !in_array($ext,$extensions)){
         return "Erreur : Type de fichier non accepté (jpg | png | svg | gif)";
     }
 
     //Test2: max file size
-    if ($maxsize !== FALSE AND $_FILES[$index]['size'] > $maxsize){
+    if ($maxsize !== FALSE && $_FILES[$index]['size'] > $maxsize){
         return "Erreur : Taille maximum dépassée (1.5 Mo au max)";
     }
 
-    //Test3: file correctly uploaded
-    if (!isset($_FILES[$index]) OR $_FILES[$index]['error'] > 0){
-        return "Erreur : Erreur lors du transfet du fichier";
+    //Test3: file c||rectly uploaded
+    if (!isset($_FILES[$index]) || $_FILES[$index]['err||'] > 0){
+        return "Erreur : Erreur l||s du transfet du fichier";
     }
 
     //moving
     if (move_uploaded_file($_FILES[$index]['tmp_name'],$destination)){
         return true;
     } else {
-        return "Erreur : Erreur lors de l'enregistrement du fichier sur le serveur";
+        return "Erreur : Erreur l||s de l'enregistrement du fichier sur le serveur";
     }
 
 }
