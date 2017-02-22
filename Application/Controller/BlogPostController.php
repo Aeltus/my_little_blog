@@ -13,7 +13,8 @@ use Application\Entity\Evaluation;
 use Application\Manager\FormFactory;
 use Application\Manager\GetDoctrine;
 
-class BlogPostController extends \Hoa\Dispatcher\Kit{
+class BlogPostController extends BlogPostRepository
+{
 
     public function indexAdmin(){
 
@@ -25,7 +26,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     public function index(){
 
-        if ( $_SERVER['REQUEST_URI'] == '/admin_posts' ){
+        if ( isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] == '/admin_posts' ){
             $layout = 'Back/posts.html.twig';
         } else {
             $layout = 'Front/blogMainPage.html.twig';
@@ -139,7 +140,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                 FormFactory::secureCSRF($_POST['token'], 'Comment');
 
-                $comment = new Comment();
+                $comment = new Comment($_POST['author'], $_POST['comment'], $post);
                 $em->persist($comment);
 
                 $security = FormFactory::security('Comment', $comment);

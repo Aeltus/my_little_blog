@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="272df683-fa64-4acc-a01d-5e0dd7120495" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controller/BlogPostController.php" afterPath="$PROJECT_DIR$/Application/Controller/BlogPostController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Controller/TagController.php" afterPath="$PROJECT_DIR$/Application/Controller/TagController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Entity/Comment.php" afterPath="$PROJECT_DIR$/Application/Entity/Comment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Entity/Evaluation.php" afterPath="$PROJECT_DIR$/Application/Entity/Evaluation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Entity/Message.php" afterPath="$PROJECT_DIR$/Application/Entity/Message.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/FileBrowser/upload.php" afterPath="$PROJECT_DIR$/Application/FileBrowser/upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Repository/BlogPostRepository.php" afterPath="$PROJECT_DIR$/Application/Repository/BlogPostRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Repository/CommentRepository.php" afterPath="$PROJECT_DIR$/Application/Repository/CommentRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/SplClassLoader.php" afterPath="$PROJECT_DIR$/Application/SplClassLoader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/comments.html.twig" afterPath="$PROJECT_DIR$/Application/View/Back/comments.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/js/bootstrap.js" afterPath="$PROJECT_DIR$/Application/View/Back/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/layout.html.twig" afterPath="$PROJECT_DIR$/Application/View/Back/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/mediasManage.html.twig" afterPath="$PROJECT_DIR$/Application/View/Back/mediasManage.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/tags.html.twig" afterPath="$PROJECT_DIR$/Application/View/Back/tags.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/updateTag.html.twig" afterPath="$PROJECT_DIR$/Application/View/Back/updateTag.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Front/layout.html.twig" afterPath="$PROJECT_DIR$/Application/View/Front/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,32 +41,157 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/View/Front/layout.html.twig">
+      <file leaf-file-name="browse.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="122" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#87#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PHP/\Application\Repository\BlogPostRepository" pinned="false" current-in-tab="false">
+        <entry file="uml://PHP/\Application\Repository\BlogPostRepository">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>PHP</ID>
+              <OriginalElement>\Application\Repository\BlogPostRepository</OriginalElement>
+              <nodes>
+                <node x="188.63888888888897" y="44.0">\Doctrine\Common\Collections\Selectable</node>
+                <node x="568.7500000000001" y="1759.0">\Application\Controller\BlogPostController</node>
+                <node x="191.00000000000006" y="1173.0">\Application\Repository\TagRepository</node>
+                <node x="150.63888888888897" y="189.0">\Doctrine\ORM\EntityRepository</node>
+                <node x="358.00000000000006" y="1173.0">\Application\Repository\EvaluationRepository</node>
+                <node x="585.0" y="1151.0">\Application\Repository\CommentRepository</node>
+                <node x="827.0" y="688.0">\Application\Entity\BlogPost</node>
+                <node x="375.63888888888897" y="0.0">\Doctrine\Common\Persistence\ObjectRepository</node>
+                <node x="0.0" y="1162.0">\Application\Repository\BlogPostRepository</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="\Application\Repository\CommentRepository" target="\Doctrine\ORM\EntityRepository">
+                  <point x="0.0" y="-47.5" />
+                  <point x="696.0" y="663.0" />
+                  <point x="547.8888888888889" y="663.0" />
+                  <point x="170.25" y="224.5" />
+                </edge>
+                <edge source="\Application\Repository\BlogPostRepository" target="\Doctrine\ORM\EntityRepository">
+                  <point x="0.0" y="-36.5" />
+                  <point x="85.5" y="663.0" />
+                  <point x="207.38888888888897" y="663.0" />
+                  <point x="-170.25" y="224.5" />
+                </edge>
+                <edge source="\Application\Repository\EvaluationRepository" target="\Doctrine\ORM\EntityRepository">
+                  <point x="0.0" y="-25.5" />
+                  <point x="461.50000000000006" y="663.0" />
+                  <point x="434.38888888888897" y="663.0" />
+                  <point x="56.75" y="224.5" />
+                </edge>
+                <edge source="\Application\Repository\TagRepository" target="\Doctrine\ORM\EntityRepository">
+                  <point x="0.0" y="-25.5" />
+                  <point x="264.50000000000006" y="663.0" />
+                  <point x="320.88888888888897" y="663.0" />
+                  <point x="-56.75" y="224.5" />
+                </edge>
+                <edge source="\Doctrine\ORM\EntityRepository" target="\Doctrine\Common\Persistence\ObjectRepository">
+                  <point x="113.5" y="-224.5" />
+                  <point x="491.13888888888897" y="164.0" />
+                  <point x="463.13888888888897" y="164.0" />
+                  <point x="0.0" y="69.5" />
+                </edge>
+                <edge source="\Doctrine\ORM\EntityRepository" target="\Doctrine\Common\Collections\Selectable">
+                  <point x="-113.5" y="-224.5" />
+                  <point x="0.0" y="25.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.1840031520882583" x="352.7021630615641" y="865.7021630615641" />
+              <SelectedNodes>
+                <node>\Application\Repository\BlogPostRepository</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constants</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PHP/\Application\Controller\CommentController" pinned="false" current-in-tab="false">
+        <entry file="uml://PHP/\Application\Controller\CommentController">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>PHP</ID>
+              <OriginalElement>\Application\Controller\CommentController</OriginalElement>
+              <nodes>
+                <node x="0.0" y="213.0">\Application\Controller\CommentController</node>
+                <node x="1.0" y="0.0">\Hoa\Dispatcher\Kit</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="\Application\Controller\CommentController" target="\Hoa\Dispatcher\Kit">
+                  <point x="0.0" y="-47.5" />
+                  <point x="0.0" y="81.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="-406.0" y="-140.0" />
+              <SelectedNodes>
+                <node>\Application\Controller\CommentController</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constants</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <VISIBILITY>private</VISIBILITY>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TagController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Controller/TagController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="793">
+              <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.htaccess">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
+      <file leaf-file-name="PHP/\Application\Controller\TagController" pinned="false" current-in-tab="false">
+        <entry file="uml://PHP/\Application\Controller\TagController">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>PHP</ID>
+              <OriginalElement>\Application\Controller\TagController</OriginalElement>
+              <nodes>
+                <node x="6.5" y="213.0">\Application\Controller\TagController</node>
+                <node x="0.0" y="0.0">\Hoa\Dispatcher\Kit</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="\Application\Controller\TagController" target="\Hoa\Dispatcher\Kit">
+                  <point x="0.0" y="-58.5" />
+                  <point x="0.0" y="81.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="-423.5" y="-140.0" />
+              <SelectedNodes>
+                <node>\Application\Controller\TagController</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+                <Category>Constants</Category>
+                <Category>Constructors</Category>
+                <Category>Methods</Category>
+              </Categories>
+              <VISIBILITY>private</VISIBILITY>
             </state>
           </provider>
         </entry>
@@ -90,68 +199,28 @@
       <file leaf-file-name="BlogPostRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/Repository/BlogPostRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+            <state relative-caret-position="298">
+              <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FormFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Manager/FormFactory.php">
+      <file leaf-file-name="BlogPostController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Controller/BlogPostController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="30" column="44" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="44" />
+            <state relative-caret-position="748">
+              <caret line="53" column="37" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/FileBrowser/upload.php">
+      <file leaf-file-name="BlogPost.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Entity/BlogPost.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tags.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/View/Back/tags.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="updateTag.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/View/Back/updateTag.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/View/Back/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="122" lean-forward="false" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+            <state relative-caret-position="-1139">
+              <caret line="35" column="130" lean-forward="false" selection-start-line="35" selection-start-column="130" selection-end-line="35" selection-end-column="130" />
               <folding />
             </state>
           </provider>
@@ -209,11 +278,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/View/Back/addPost.html.twig" />
-        <option value="$PROJECT_DIR$/Application/FileBrowser/browser.php" />
-        <option value="$PROJECT_DIR$/Application/Manager/getDoctrine.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/cli-config.php" />
         <option value="$PROJECT_DIR$/Application/View/updateTag.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Back/updatePost.html.twig" />
         <option value="$PROJECT_DIR$/Application/Repository/commentRepository.php" />
@@ -236,7 +300,6 @@
         <option value="$PROJECT_DIR$/Application/Config/Private/bdd.yml" />
         <option value="$PROJECT_DIR$/Application/Entity/BlogPost.php" />
         <option value="$PROJECT_DIR$/Application/Manager/FormFactory.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Application/View/Front/blogMainPage.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Back/posts.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Front/article.html.twig" />
@@ -244,7 +307,6 @@
         <option value="$PROJECT_DIR$/Application/Entity/Evaluation.php" />
         <option value="$PROJECT_DIR$/Application/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/Application/View/Back/js/bootstrap.js" />
-        <option value="$PROJECT_DIR$/Application/Controller/BlogPostController.php" />
         <option value="$PROJECT_DIR$/Application/Controller/TagController.php" />
         <option value="$PROJECT_DIR$/Application/Entity/Message.php" />
         <option value="$PROJECT_DIR$/Application/Repository/CommentRepository.php" />
@@ -255,11 +317,18 @@
         <option value="$PROJECT_DIR$/Application/View/Back/updateTag.html.twig" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/Application/FileBrowser/upload.php" />
         <option value="$PROJECT_DIR$/Application/Repository/BlogPostRepository.php" />
         <option value="$PROJECT_DIR$/Application/View/Front/layout.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Back/layout.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/Application/FileBrowser/upload.php" />
+        <option value="$PROJECT_DIR$/Tests/AppTest.php" />
+        <option value="$PROJECT_DIR$/phpunit.xml.dist" />
+        <option value="$PROJECT_DIR$/Application/Controller/BlogPostController.php" />
+        <option value="$PROJECT_DIR$/Application/Config/testsRoutes.yml" />
+        <option value="$PROJECT_DIR$/Tests/CoreControllerTest.php" />
+        <option value="$PROJECT_DIR$/Tests/ManagersTest.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -274,10 +343,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-12" />
-    <option name="y" value="4" />
-    <option name="width" value="1932" />
-    <option name="height" value="1047" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -297,8 +366,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -321,7 +388,21 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
+              <option name="myItemId" value="sql" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_little_blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_little_blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -336,54 +417,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_little_blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_little_blog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Front" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_little_blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_little_blog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Back" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -420,24 +453,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Manager" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_little_blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="my_little_blog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FileBrowser" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -519,6 +534,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -527,21 +544,21 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Application" />
+    <property name="last_opened_file_path" value="D:/Desktop/diagrams" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\my_little_blog" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\View\Back" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\FileBrowser" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\Config" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\View" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\my_little_blog\Application\FileBrowser" />
       <recent name="C:\wamp64\www\my_little_blog\Application\View" />
       <recent name="C:\wamp64\www\my_little_blog\Application" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\my_little_blog\Application\View\Back" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\FileBrowser" />
-      <recent name="C:\wamp64\www\my_little_blog" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\Config" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\View" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Script.cli-config.php">
@@ -665,12 +682,14 @@
       <workItem from="1487267037776" duration="10682000" />
       <workItem from="1487280078585" duration="518000" />
       <workItem from="1487352628184" duration="2526000" />
-      <workItem from="1487408717814" duration="5647000" />
+      <workItem from="1487408717814" duration="6243000" />
+      <workItem from="1487515833336" duration="11171000" />
+      <workItem from="1487612693363" duration="2721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="358210000" />
+    <option name="totallyTimeSpent" value="372698000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -682,17 +701,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-12" y="4" width="1932" height="1047" extended-state="1" />
+    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2318376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23720682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17254274" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30634573" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39606127" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -700,6 +718,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -742,165 +761,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="50" column="31" lean-forward="false" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Config/Private/bdd.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/addTag.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/updatePost.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="87" lean-forward="false" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="56" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/addPost.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/404.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="58" lean-forward="false" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Config/routes.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Entity/Tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="127" lean-forward="false" selection-start-line="32" selection-start-column="127" selection-end-line="32" selection-end-column="127" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Repository/TagRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Repository/EvaluationRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="25" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controller/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Config/Private/mail.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Front/contact.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Front/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="16" column="120" lean-forward="false" selection-start-line="16" selection-start-column="120" selection-end-line="16" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controller/CoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="27" column="35" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cli-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Config/Private/bdd.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="765">
-            <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/View/Front/blogMainPage.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -926,70 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12223">
           <caret line="719" column="18" lean-forward="false" selection-start-line="719" selection-start-column="18" selection-end-line="719" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Entity/BlogPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" column="130" lean-forward="false" selection-start-line="35" selection-start-column="130" selection-end-line="35" selection-end-column="130" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Config/Private/mail.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Manager/GetDoctrine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://PHP/\Application\Controller\BlogPostController">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>PHP</ID>
-          <OriginalElement>\Application\Controller\BlogPostController</OriginalElement>
-          <nodes>
-            <node x="" y="">\Application\Controller\BlogPostController</node>
-            <node x="" y="">\Hoa\Dispatcher\Kit</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="124.5" y="156.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Fields</Category>
-            <Category>Constants</Category>
-            <Category>Constructors</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Entity/Evaluation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="71" column="28" lean-forward="false" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1013,23 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="1575" column="26" lean-forward="false" selection-start-line="1575" selection-start-column="26" selection-end-line="1575" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controller/BlogPostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="477" column="0" lean-forward="false" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Controller/TagController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,7 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,7 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,7 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1085,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,31 +868,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Manager/FormFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="30" column="44" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Repository/BlogPostRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="1156">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1125,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="122" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="122" lean-forward="false" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1141,14 +896,527 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Application/FileBrowser/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="758">
+          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="71" column="28" lean-forward="false" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controller/CoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="42" selection-end-column="47" />
+          <folding>
+            <element signature="e#136#156#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Config/routes.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Config/Private/bdd.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Config/Private/mail.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Config/testsRoutes.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Manager/FormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="30" column="44" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/CoreControllerTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="17" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ManagersTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="33" column="57" lean-forward="false" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="57" lean-forward="false" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Controller\BlogPostController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Controller\BlogPostController</OriginalElement>
+          <nodes>
+            <node x="-9.0" y="217.0">\Application\Controller\BlogPostController</node>
+            <node x="22.5" y="0.0">\Hoa\Dispatcher\Kit</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\Application\Controller\BlogPostController" target="\Hoa\Dispatcher\Kit">
+              <point x="0.0" y="-91.5" />
+              <point x="0.0" y="81.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-410.0" y="-135.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Controller\CoreController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Controller\CoreController</OriginalElement>
+          <nodes>
+            <node x="45.5" y="213.0">\Application\Controller\CoreController</node>
+            <node x="0.0" y="0.0">\Hoa\Dispatcher\Kit</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\Application\Controller\CoreController" target="\Hoa\Dispatcher\Kit">
+              <point x="0.0" y="-36.5" />
+              <point x="0.0" y="81.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-421.0" y="-135.0" />
+          <SelectedNodes>
+            <node>\Application\Controller\CoreController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Entity\BlogPost">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Entity\BlogPost</OriginalElement>
+          <nodes>
+            <node x="-567.0" y="-399.0">\Application\Entity\BlogPost</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-437.0" y="-215.0" />
+          <SelectedNodes>
+            <node>\Application\Entity\BlogPost</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Entity\Comment">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Entity\Comment</OriginalElement>
+          <nodes>
+            <node x="-551.0" y="-350.0">\Application\Entity\Comment</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-433.0" y="-175.0" />
+          <SelectedNodes>
+            <node>\Application\Entity\Comment</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Entity/Evaluation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="43" column="32" lean-forward="false" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Entity\Evaluation">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Entity\Evaluation</OriginalElement>
+          <nodes>
+            <node x="-439.0" y="-238.0">\Application\Entity\Evaluation</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-433.0" y="-175.0" />
+          <SelectedNodes>
+            <node>\Application\Entity\Evaluation</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Entity\Message">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Entity\Message</OriginalElement>
+          <nodes>
+            <node x="-573.0" y="-342.0">\Application\Entity\Message</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-437.0" y="-175.0" />
+          <SelectedNodes>
+            <node>\Application\Entity\Message</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Entity\Tag">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Entity\Tag</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">\Application\Entity\Tag</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-451.0" y="-175.0" />
+          <SelectedNodes>
+            <node>\Application\Entity\Tag</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Manager\FormFactory">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Manager\FormFactory</OriginalElement>
+          <nodes>
+            <node x="-501.0" y="-235.0">\Application\Manager\FormFactory</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-427.0" y="-175.0" />
+          <SelectedNodes>
+            <node>\Application\Manager\FormFactory</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Manager/GetDoctrine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Manager\GetDoctrine">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Manager\GetDoctrine</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">\Application\Manager\GetDoctrine</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-429.0" y="-535.0" />
+          <SelectedNodes>
+            <node>\Application\Manager\GetDoctrine</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Repository/BlogPostRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Repository\BlogPostRepository">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Repository\BlogPostRepository</OriginalElement>
+          <nodes>
+            <node x="188.63888888888897" y="44.0">\Doctrine\Common\Collections\Selectable</node>
+            <node x="568.7500000000001" y="1759.0">\Application\Controller\BlogPostController</node>
+            <node x="191.00000000000006" y="1173.0">\Application\Repository\TagRepository</node>
+            <node x="150.63888888888897" y="189.0">\Doctrine\ORM\EntityRepository</node>
+            <node x="358.00000000000006" y="1173.0">\Application\Repository\EvaluationRepository</node>
+            <node x="585.0" y="1151.0">\Application\Repository\CommentRepository</node>
+            <node x="827.0" y="688.0">\Application\Entity\BlogPost</node>
+            <node x="375.63888888888897" y="0.0">\Doctrine\Common\Persistence\ObjectRepository</node>
+            <node x="0.0" y="1162.0">\Application\Repository\BlogPostRepository</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\Application\Repository\CommentRepository" target="\Doctrine\ORM\EntityRepository">
+              <point x="0.0" y="-47.5" />
+              <point x="696.0" y="663.0" />
+              <point x="547.8888888888889" y="663.0" />
+              <point x="170.25" y="224.5" />
+            </edge>
+            <edge source="\Application\Repository\BlogPostRepository" target="\Doctrine\ORM\EntityRepository">
+              <point x="0.0" y="-36.5" />
+              <point x="85.5" y="663.0" />
+              <point x="207.38888888888897" y="663.0" />
+              <point x="-170.25" y="224.5" />
+            </edge>
+            <edge source="\Application\Repository\EvaluationRepository" target="\Doctrine\ORM\EntityRepository">
+              <point x="0.0" y="-25.5" />
+              <point x="461.50000000000006" y="663.0" />
+              <point x="434.38888888888897" y="663.0" />
+              <point x="56.75" y="224.5" />
+            </edge>
+            <edge source="\Application\Repository\TagRepository" target="\Doctrine\ORM\EntityRepository">
+              <point x="0.0" y="-25.5" />
+              <point x="264.50000000000006" y="663.0" />
+              <point x="320.88888888888897" y="663.0" />
+              <point x="-56.75" y="224.5" />
+            </edge>
+            <edge source="\Doctrine\ORM\EntityRepository" target="\Doctrine\Common\Persistence\ObjectRepository">
+              <point x="113.5" y="-224.5" />
+              <point x="491.13888888888897" y="164.0" />
+              <point x="463.13888888888897" y="164.0" />
+              <point x="0.0" y="69.5" />
+            </edge>
+            <edge source="\Doctrine\ORM\EntityRepository" target="\Doctrine\Common\Collections\Selectable">
+              <point x="-113.5" y="-224.5" />
+              <point x="0.0" y="25.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.1840031520882583" x="352.7021630615641" y="865.7021630615641" />
+          <SelectedNodes>
+            <node>\Application\Repository\BlogPostRepository</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Controller\CommentController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Controller\CommentController</OriginalElement>
+          <nodes>
+            <node x="0.0" y="213.0">\Application\Controller\CommentController</node>
+            <node x="1.0" y="0.0">\Hoa\Dispatcher\Kit</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\Application\Controller\CommentController" target="\Hoa\Dispatcher\Kit">
+              <point x="0.0" y="-47.5" />
+              <point x="0.0" y="81.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-406.0" y="-140.0" />
+          <SelectedNodes>
+            <node>\Application\Controller\CommentController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controller/TagController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="793">
+          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://PHP/\Application\Controller\TagController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Application\Controller\TagController</OriginalElement>
+          <nodes>
+            <node x="6.5" y="213.0">\Application\Controller\TagController</node>
+            <node x="0.0" y="0.0">\Hoa\Dispatcher\Kit</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\Application\Controller\TagController" target="\Hoa\Dispatcher\Kit">
+              <point x="0.0" y="-58.5" />
+              <point x="0.0" y="81.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-423.5" y="-140.0" />
+          <SelectedNodes>
+            <node>\Application\Controller\TagController</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controller/BlogPostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="53" column="37" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Entity/BlogPost.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1139">
+          <caret line="35" column="130" lean-forward="false" selection-start-line="35" selection-start-column="130" selection-end-line="35" selection-end-column="130" />
           <folding />
         </state>
       </provider>
