@@ -13,7 +13,7 @@ use Application\Entity\Evaluation;
 use Application\Manager\FormFactory;
 use Application\Manager\GetDoctrine;
 
-class BlogPostController extends BlogPostRepository
+class BlogPostController extends \Hoa\Dispatcher\Kit
 {
 
     public function indexAdmin(){
