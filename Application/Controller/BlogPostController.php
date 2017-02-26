@@ -31,7 +31,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
         } else {
             $layout = 'Front/blogMainPage.html.twig';
         }
-        // All variables are set to the default values
+        // All variables are setted to the default values
         $data = [];
         $visible = '2';
         $limitStart = 0;
@@ -42,6 +42,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
         $search = NULL;
 
         $em = GetDoctrine::getEM();
+
 
         // if $_POST send variables are setted to the $_POST values
         if (!empty($_POST)){
@@ -74,6 +75,8 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
         $data['search'] = ['visible' => $visible, 'limitStart' => $limitStart, 'number' => $number, 'tag' => $tag, 'orderBy' => $orderBy, 'order' => $order, 'search' => $search];
         $data['posts'] = $em->getRepository('Application\Entity\BlogPost')->getPosts($visible, $limitStart, $number, $tag, $orderBy, $order, $search);
         $data['pagination'] = ["start" => $limitStart, "number" => $number, "total" => count($data['posts'])];
+
+
 
         return array('layout' => $layout, 'data' => $data);
 

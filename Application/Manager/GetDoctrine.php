@@ -22,6 +22,7 @@ class GetDoctrine {
         $dbParams = Yaml::parse(file_get_contents(__Dir__.'/../Config/Private/bdd.yml'));
 
         $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
+
         return EntityManager::create($dbParams, $config);
 
     }
