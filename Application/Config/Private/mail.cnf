@@ -1,0 +1,8 @@
+mail:
+    server:     SERVER_ADRESS
+    port:       PORT
+    security:   ssl
+    id:         ID
+    password:   PASSWORD
+    sendTo:     RECEVER
+    sendToName: NAME_OF_RECEVER

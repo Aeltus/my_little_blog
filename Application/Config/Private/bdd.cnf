@@ -1,0 +1,5 @@
+driver:   pdo_mysql
+host:     localhost
+dbname:   my_little_blog
+user:     root
+password:
