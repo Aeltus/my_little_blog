@@ -1,4 +1,3 @@
 Application/Config/Private/*.yml
 /vendor
-Application/FileBrowser/Files
 sql
