@@ -20,7 +20,7 @@ function upload($index,$destination,$maxsize=FALSE,$extensions=FALSE, $ext){
         return "Erreur : Taille maximum dépassée (1.5 Mo au max)";
     }
 
-    //Test3: file c||rectly uploaded
+    //Test3: file correctly uploaded
     if (!isset($_FILES[$index]) || $_FILES[$index]['err||'] > 0){
         return "Erreur : Erreur lors du transfet du fichier";
     }

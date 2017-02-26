@@ -42,15 +42,15 @@
                                 {% set nbStars = post.evaluation // 1 %}
                                 {% for i in 0..9 %}
                                     {% if x < nbStars %}
-                                    <img src="Application/View/Front/img/star.png" class="star" />
+                                    <img src="Application/Web/Front/img/star.png" class="star" />
                                     {% elseif x == nbStars %}
                                         {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.5) %}
-                                            <img src="Application/View/Front/img/halfStar.png" class="star" />
+                                            <img src="Application/Web/Front/img/halfStar.png" class="star" />
                                         {% else %}
-                                            <img src="Application/View/Front/img/greyStar.png" class="star" />
+                                            <img src="Application/Web/Front/img/greyStar.png" class="star" />
                                         {% endif %}
                                     {% else %}
-                                        <img src="Application/View/Front/img/greyStar.png" class="star" />
+                                        <img src="Application/Web/Front/img/greyStar.png" class="star" />
                                     {% endif %}
                                     {% set x = x + 1 %}
                                 {% endfor %}

@@ -2,9 +2,79 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="272df683-fa64-4acc-a01d-5e0dd7120495" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/css/bootstrap.css" afterPath="$PROJECT_DIR$/Application/Web/Back/css/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/Application/Web/Back/css/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/css/simple-sidebar.css" afterPath="$PROJECT_DIR$/Application/Web/Back/css/simple-sidebar.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/css/styles.css" afterPath="$PROJECT_DIR$/Application/Web/Back/css/styles.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/Application/Web/Back/fonts/glyphicons-halflings-regular.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/Application/Web/Back/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/Application/Web/Back/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/Application/Web/Back/fonts/glyphicons-halflings-regular.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/Application/Web/Back/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/js/bootstrap.js" afterPath="$PROJECT_DIR$/Application/Web/Back/js/bootstrap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/Application/Web/Back/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Back/js/jquery.js" afterPath="$PROJECT_DIR$/Application/Web/Back/js/jquery.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/animate.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/animate.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/animate.min.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/animate.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/bootstrap-theme.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/Application/Web/Front/css/bootstrap-theme.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/bootstrap-theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/bootstrap.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/Application/Web/Front/css/bootstrap.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/font-awesome.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/font-awesome.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/font-awesome.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/img/bx_loader.gif" afterPath="$PROJECT_DIR$/Application/Web/Front/css/img/bx_loader.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/img/controls.png" afterPath="$PROJECT_DIR$/Application/Web/Front/css/img/controls.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/isotope.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/isotope.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/jquery.bxslider.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/jquery.bxslider.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/overwrite.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/overwrite.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/css/style.css" afterPath="$PROJECT_DIR$/Application/Web/Front/css/style.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/FontAwesome.otf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/fontawesome-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/fontawesome-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/fontawesome-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/fontawesome-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/glyphicons-halflings-regular.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/Application/Web/Front/fonts/glyphicons-halflings-regular.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/blog-back-ground.jpg" afterPath="$PROJECT_DIR$/Application/Web/Front/img/blog-back-ground.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/blog-back-ground.xcf" afterPath="$PROJECT_DIR$/Application/Web/Front/img/blog-back-ground.xcf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/favicon.ico" afterPath="$PROJECT_DIR$/Application/Web/Front/img/favicon.ico" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/greyStar.png" afterPath="$PROJECT_DIR$/Application/Web/Front/img/greyStar.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/halfStar.png" afterPath="$PROJECT_DIR$/Application/Web/Front/img/halfStar.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/header.jpg" afterPath="$PROJECT_DIR$/Application/Web/Front/img/header.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/moi.png" afterPath="$PROJECT_DIR$/Application/Web/Front/img/moi.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/img/star.png" afterPath="$PROJECT_DIR$/Application/Web/Front/img/star.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/bootstrap.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/bootstrap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/component.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/component.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/Descr.WD3" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/Descr.WD3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/blank.gif" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/blank.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/fancybox_loading.gif" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/fancybox_loading.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/fancybox_loading_402x.gif" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/fancybox_loading_402x.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/fancybox_overlay.png" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/fancybox_overlay.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/fancybox_sprite.png" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/fancybox_sprite.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/fancybox_sprite_402x.png" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/fancybox_sprite_402x.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/jquery.fancybox.css" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/jquery.fancybox.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/fancybox/jquery.fancybox.pack.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/fancybox/jquery.fancybox.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/functions.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/functions.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/jquery-2.1.1.min.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/jquery-2.1.1.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/jquery.bxslider.min.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/jquery.bxslider.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/jquery.easing.1.3.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/jquery.easing.1.3.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/jquery.isotope.min.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/jquery.isotope.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/modernizr.custom.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/modernizr.custom.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Application/View/Front/js/wow.min.js" afterPath="$PROJECT_DIR$/Application/Web/Front/js/wow.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/FileBrowser/browse.php" afterPath="$PROJECT_DIR$/Application/FileBrowser/browse.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/FileBrowser/browser.php" afterPath="$PROJECT_DIR$/Application/FileBrowser/browser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/FileBrowser/upload.php" afterPath="$PROJECT_DIR$/Application/FileBrowser/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Back/layout.html.twig" afterPath="$PROJECT_DIR$/Application/View/Back/layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Front/article.html.twig" afterPath="$PROJECT_DIR$/Application/View/Front/article.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Front/index.html.twig" afterPath="$PROJECT_DIR$/Application/View/Front/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/View/Front/layout.html.twig" afterPath="$PROJECT_DIR$/Application/View/Front/layout.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,87 +110,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CoreControllerTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/CoreControllerTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testsRoutes.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Config/testsRoutes.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="browser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlogPostController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Controller/BlogPostController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="73" column="80" lean-forward="false" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
-              <folding>
-                <element signature="e#123#155#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bdd.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Config/Private/bdd.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="9" lean-forward="false" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bdd.cnf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Config/Private/bdd.cnf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mail.cnf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Config/Private/mail.cnf">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+              <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="447">
-                <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="mediaDelete.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/FileBrowser/mediaDelete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/FileBrowser/upload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BlogPostRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Repository/BlogPostRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -128,21 +153,59 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetDoctrine.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Manager/GetDoctrine.php">
+      <file leaf-file-name="updatePost.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/View/Back/updatePost.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="e#120#152#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tags.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/View/Back/tags.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="posts.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/View/Back/posts.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2086">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mediasManage.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/View/Back/mediasManage.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="browse.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browse.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,7 +216,6 @@
     <findStrings>
       <find>../</find>
       <find>a:</find>
-      <find>Application/View</find>
       <find>{{ app.request.server.get(&quot;HTTP_HOST&quot;) }}/</find>
       <find>@form</find>
       <find>idTag</find>
@@ -181,6 +243,7 @@
       <find>getparams</find>
       <find>OR</find>
       <find>doctrine/orm</find>
+      <find>Application/View</find>
     </findStrings>
     <replaceStrings>
       <replace>C47D20</replace>
@@ -191,6 +254,7 @@
       <replace>id</replace>
       <replace>$obj</replace>
       <replace>||</replace>
+      <replace>Application/Web</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,8 +263,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Application/View/Back/updatePost.html.twig" />
-        <option value="$PROJECT_DIR$/Application/Repository/commentRepository.php" />
         <option value="$PROJECT_DIR$/Application/Repository/TagRepository.php" />
         <option value="$PROJECT_DIR$/Application/View/Back/css/styles.css" />
         <option value="$PROJECT_DIR$/Application/Controller/Core.php" />
@@ -211,7 +273,6 @@
         <option value="$PROJECT_DIR$/Application/Config/Private/mail.yml" />
         <option value="$PROJECT_DIR$/Application/Controller/CommentController.php" />
         <option value="$PROJECT_DIR$/Application/Repository/EvaluationRepository.php" />
-        <option value="$PROJECT_DIR$/Application/View/Front/index.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Front/contact.html.twig" />
         <option value="$PROJECT_DIR$/Application/Controller/CoreController.php" />
         <option value="$PROJECT_DIR$/Application/Config/Private/bdd.conf" />
@@ -221,7 +282,6 @@
         <option value="$PROJECT_DIR$/Application/Manager/FormFactory.php" />
         <option value="$PROJECT_DIR$/Application/View/Front/blogMainPage.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Back/posts.html.twig" />
-        <option value="$PROJECT_DIR$/Application/View/Front/article.html.twig" />
         <option value="$PROJECT_DIR$/Application/View/Front/css/style.css" />
         <option value="$PROJECT_DIR$/Application/Entity/Evaluation.php" />
         <option value="$PROJECT_DIR$/Application/Entity/Comment.php" />
@@ -236,10 +296,7 @@
         <option value="$PROJECT_DIR$/Application/View/Back/updateTag.html.twig" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/Application/Repository/BlogPostRepository.php" />
-        <option value="$PROJECT_DIR$/Application/View/Front/layout.html.twig" />
-        <option value="$PROJECT_DIR$/Application/View/Back/layout.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/Application/FileBrowser/upload.php" />
         <option value="$PROJECT_DIR$/Tests/AppTest.php" />
         <option value="$PROJECT_DIR$/phpunit.xml.dist" />
         <option value="$PROJECT_DIR$/Application/Config/testsRoutes.yml" />
@@ -249,6 +306,13 @@
         <option value="$PROJECT_DIR$/Application/Controller/BlogPostController.php" />
         <option value="$PROJECT_DIR$/Application/Config/Private/mail.cnf" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Application/View/Front/layout.html.twig" />
+        <option value="$PROJECT_DIR$/Application/View/Front/index.html.twig" />
+        <option value="$PROJECT_DIR$/Application/View/Front/article.html.twig" />
+        <option value="$PROJECT_DIR$/Application/View/Back/layout.html.twig" />
+        <option value="$PROJECT_DIR$/Application/FileBrowser/browse.php" />
+        <option value="$PROJECT_DIR$/Application/FileBrowser/browser.php" />
+        <option value="$PROJECT_DIR$/Application/FileBrowser/upload.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -340,6 +404,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_little_blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_little_blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Front" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_little_blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="my_little_blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Back" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,18 +679,18 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\my_little_blog\Application\Web\Back" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\Web\Front" />
+      <recent name="C:\wamp64\www\my_little_blog" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\View\Back" />
+      <recent name="C:\wamp64\www\my_little_blog\Application\FileBrowser" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\my_little_blog\Application\Config\Private" />
       <recent name="C:\wamp64\www\my_little_blog\Application\FileBrowser" />
       <recent name="C:\wamp64\www\my_little_blog\Application\View" />
       <recent name="C:\wamp64\www\my_little_blog\Application" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\my_little_blog" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\View\Back" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\FileBrowser" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\Config" />
-      <recent name="C:\wamp64\www\my_little_blog\Application\View" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Script.cli-config.php">
@@ -711,12 +819,12 @@
       <workItem from="1487612693363" duration="2721000" />
       <workItem from="1487955089834" duration="2648000" />
       <workItem from="1488029783113" duration="3777000" />
-      <workItem from="1488123680438" duration="1100000" />
+      <workItem from="1488123680438" duration="2465000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380223000" />
+    <option name="totallyTimeSpent" value="381588000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -728,7 +836,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -788,132 +896,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/mediaDelete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/js/bootstrap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="1575" column="26" lean-forward="false" selection-start-line="1575" selection-start-column="26" selection-end-line="1575" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Entity/Message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Repository/CommentRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/SplClassLoader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/comments.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/mediasManage.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/tags.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/updateTag.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Front/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/View/Back/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="122" lean-forward="false" selection-start-line="28" selection-start-column="122" selection-end-line="28" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="59" column="0" lean-forward="true" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="71" column="28" lean-forward="false" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpunit.xml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Config/routes.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Config/Private/mail.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1179,16 +1161,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="uml://PHP/\Application\Repository\BlogPostRepository">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1335,14 +1307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Repository/BlogPostRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Controller/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1356,7 +1320,7 @@
         <state relative-caret-position="833">
           <caret line="58" column="23" lean-forward="false" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
           <folding>
-            <element signature="e#136#156#0#PHP" expanded="true" />
+            <element signature="e#136#156#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1385,20 +1349,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Manager/GetDoctrine.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#120#152#0#PHP" expanded="true" />
+            <element signature="e#120#152#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1408,7 +1364,7 @@
         <state relative-caret-position="1088">
           <caret line="73" column="80" lean-forward="false" selection-start-line="73" selection-start-column="80" selection-end-line="73" selection-end-column="80" />
           <folding>
-            <element signature="e#123#155#0#PHP" expanded="true" />
+            <element signature="e#123#155#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1456,10 +1412,170 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Front/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3349">
+          <caret line="197" column="45" lean-forward="true" selection-start-line="197" selection-start-column="45" selection-end-line="197" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Front/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2409">
+          <caret line="57" column="18" lean-forward="true" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Front/contact.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-420">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Front/blogMainPage.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2327">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Front/article.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1783">
+          <caret line="52" column="65" lean-forward="false" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="142" column="29" lean-forward="false" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/comments.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/addTag.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/addPost.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/updateTag.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/updatePost.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/tags.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/posts.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2086">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/View/Back/mediasManage.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/browser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/mediaDelete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/FileBrowser/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Repository/BlogPostRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="7" lean-forward="false" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
           <folding />
         </state>
       </provider>
