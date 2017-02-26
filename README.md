@@ -44,3 +44,7 @@ Your web site is up !!!
 You can do some basic tests on this application automatically in dev mode by using phpunit.
 
 For tests, you just have to open a terminal in the root directory of the project, and type : ```php vendor/phpunit/phpunit/phpunit```
+
+#### 4. Notice :
+
+The statement did not ask for an identification, the administration is therefore accessible to all, the link of access to the administration is in the footer

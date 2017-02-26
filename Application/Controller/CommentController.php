@@ -14,7 +14,8 @@ use Application\Manager\GetDoctrine;
 class CommentController extends \Hoa\Dispatcher\Kit{
 
     public function manageComments (){
-
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
         $data = [];
 
         $em = GetDoctrine::getEM();

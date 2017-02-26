@@ -16,12 +16,12 @@ class GetDoctrine {
     public static function getEM(){
 
         $paths = array(__DIR__."/../Entity");
-        $isDevMode = true;
+        $proxy = true;
 
         // the connection configuration
         $dbParams = Yaml::parse(file_get_contents(__Dir__.'/../Config/Private/bdd.yml'));
 
-        $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
+        $config = Setup::createAnnotationMetadataConfiguration($paths, $proxy, null, null, false);
 
         return EntityManager::create($dbParams, $config);
 
