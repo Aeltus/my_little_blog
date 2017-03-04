@@ -72,19 +72,18 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-xs-2">
+                            <div class="col-xs-6 col-xs-offset-6 posts-paginator">
+                                <p>Page : {{ ((pagination.start+1) // pagination.number)+1 }} Sur : {{ (pagination.total/pagination.number)|round(0, 'ceil') }}</p>
+                            </div>
+                            <div class="col-xs-4 col-sm-2">
                                 {% if pagination.start != 0 %}
                                     <div class="btn prev-btn"><< Précédent</div>
                                 {% endif %}
                             </div>
 
-                            <div class="col-xs-2 col-xs-offset-3 text-center"><button type="submit" class="btn" id="form-btn">Trier</button></div>
+                            <div class="col-xs-2 col-xs-offset-1 col-sm-2 col-sm-offset-3 text-center"><button type="submit" class="btn" id="form-btn">Trier</button></div>
 
-                            <div class="col-md-xs posts-paginator">
-                                <p>Page : {{ ((pagination.start+1) // pagination.number)+1 }} Sur : {{ (pagination.total/pagination.number)|round(0, 'ceil') }}</p>
-                            </div>
-
-                            <div class="col-xs-2">
+                            <div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-3">
                                 {% if pagination.start + pagination.number < pagination.total %}
                                     <div class="btn next-btn">Suivant >></div>
                                 {% endif %}
