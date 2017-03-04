@@ -726,6 +726,10 @@ a.scrollup:hover{
     background-color: rgba(253, 247, 224, 0.8);
 	border-radius: 10px 0px 10px 0px;
 }
+.contentPost > p >img{
+	max-width: 100%;
+	height: auto !important;
+}
 
 .tags{
 	text-align: left;
@@ -753,6 +757,7 @@ a.scrollup:hover{
 
 .commentL2{
 	text-align: center;
+	padding: 10px
 }
 
 #addComment,#note-btn, #update-btn, .prev-btn, .next-btn{
@@ -784,6 +789,10 @@ a.scrollup:hover{
 
 .label-date {
 	flex: 1;
+}
+
+select{
+    width: 120px;
 }
 
 .search{
@@ -841,14 +850,29 @@ Media queries
 ========================================= */
 /* Small devices (tablets, 768px and up) */
 
-@media (min-width: @screen-sm-min) { 
+@media (min-width: @screen-sm-min) {
 
 	.img-thumbnail img {
 		margin-right:30px;
-		
+
 	}
 
- }
+}
+
+/* XSmall devices (phones) */
+
+@media (max-width: 768px) {
+
+	#nav-title{
+		margin-top:-60px;
+	}
+
+	.menu > ul > li > a {
+		margin-right: 10px;
+		padding: 20px;
+	}
+
+}
 /* ========================================
    Timeline Media queries
 ========================================= */
@@ -889,7 +913,7 @@ Media queries
 		display: block;
 		width: 12px;
 		height: 12px;
-		margin-left: -9px;
+		margin-left: -6px;
 		background: #fff;
 		border-radius: 10px;
 		border: 4px solid rgb(255,80,80);

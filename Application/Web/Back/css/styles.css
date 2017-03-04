@@ -40,6 +40,10 @@ fieldset>label{
     margin-left: 30px;
 }
 
+select{
+    width: 120px;
+}
+
 .posts-paginator{
     margin-top: 25px;
     text-align: right;
@@ -54,4 +58,24 @@ fieldset>label{
     position: absolute;
     width: 100%;
     z-index: 500;
+}
+
+#xs-table{
+    display: none;
+}
+
+/* ========================================
+Media queries
+========================================= */
+/* XSmall devices (phones) */
+
+@media (max-width: 768px) {
+
+    #lg-table{
+        display: none;
+    }
+    #xs-table{
+        display: block;
+    }
+
 }

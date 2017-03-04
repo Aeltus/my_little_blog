@@ -26,7 +26,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
 
     public function index(){
 
-        if ( isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] == '/admin_posts' ){
+        if ( isset($_SERVER['REQUEST_URI']) && strstr($_SERVER['REQUEST_URI'], '/admin_posts') ){
             $layout = 'Back/posts.html.twig';
         } else {
             $layout = 'Front/blogMainPage.html.twig';
@@ -44,21 +44,21 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
         $em = GetDoctrine::getEM();
 
 
-        // if $_POST send variables are setted to the $_POST values
-        if (!empty($_POST)){
+        // if $_GET send variables are setted to the $_GET values
+        if (!empty($_GET)){
 
-            if (isset($_POST['visible'])){
-                $visible = (int)$_POST['visible'];
+            if (isset($_GET['visible'])){
+                $visible = (int)$_GET['visible'];
             }
-            $number = (int)$_POST['number'];
-            $orderBy = $_POST['orderBy'];
-            $order = $_POST['order'];
-            if ($_POST['tag'] != 'all'){
-                $tag = (int)$_POST['tag'];
+            $number = (int)$_GET['number'];
+            $orderBy = $_GET['orderBy'];
+            $order = $_GET['order'];
+            if ($_GET['tag'] != 'all'){
+                $tag = (int)$_GET['tag'];
             }
-            $limitStart = (int)$_POST['page'];
-            if (!empty($_POST['search'])){
-                $search = $_POST['search'];
+            $limitStart = (int)$_GET['page'];
+            if (!empty($_GET['search'])){
+                $search = $_GET['search'];
             }
 
         }

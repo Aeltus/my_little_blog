@@ -1,5 +1,6 @@
 # Welcome on my_little_blog
 #### Project number 5 of OpenClassrooms "Developpeur d'application php / Symfony" cursus. 
+#### An exemple is available on : http://www.david-danjard.fr
 
 ##### 1. Aim :
 

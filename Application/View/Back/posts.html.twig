@@ -21,46 +21,56 @@
 =====================================================================================================================-->
 
             <div class="adminForm">
-                <form action="" method="post" role="form">
+                <form action="" method="get" role="form">
 
                     <div class="row">
-                        <label for="visible">Post visible :</label>
-                        <select name="visible" id="visible">
-                            <option value="1" {% if search.visible == '1' %}selected{% endif %}>Oui</option>
-                            <option value="0" {% if search.visible == '0' %}selected{% endif %}>Non</option>
-                            <option value="2" {% if search.visible == '2' %}selected{% endif %}>Tous</option>
-                        </select>
+                        <div class="col-xs-12">
+                            <label for="visible">Post visible :</label>
+                            <select name="visible" id="visible">
+                                <option value="1" {% if search.visible == '1' %}selected{% endif %}>Oui</option>
+                                <option value="0" {% if search.visible == '0' %}selected{% endif %}>Non</option>
+                                <option value="2" {% if search.visible == '2' %}selected{% endif %}>Tous</option>
+                            </select>
+                        </div>
 
-                        <label for="number">Posts par pages :</label>
-                        <select name="number" id="number">
-                            <option value="5" {% if search.number == 5 %}selected{% endif %}>5</option>
-                            <option value="10" {% if search.number == 10 %}selected{% endif %}>10</option>
-                            <option value="20" {% if search.number == 20 %}selected{% endif %}>20</option>
-                            <option value="50" {% if search.number == 50 %}selected{% endif %}>50</option>
-                            <option value="100" {% if search.number == 100 %}selected{% endif %}>100</option>
-                        </select>
+                        <div class="col-xs-6 col-sm-3">
+                            <label for="number">Par pages :</label>
+                            <select name="number" id="number">
+                                <option value="5" {% if search.number == 5 %}selected{% endif %}>5</option>
+                                <option value="10" {% if search.number == 10 %}selected{% endif %}>10</option>
+                                <option value="20" {% if search.number == 20 %}selected{% endif %}>20</option>
+                                <option value="50" {% if search.number == 50 %}selected{% endif %}>50</option>
+                                <option value="100" {% if search.number == 100 %}selected{% endif %}>100</option>
+                            </select>
+                        </div>
 
-                        <label for="orderBy">Trié par :</label>
-                        <select name="orderBy" id="orderBy">
-                            <option value="lastUpdate" {% if search.orderBy == 'lastUpdate' %}selected{% endif %}>Date</option>
-                            <option value="evaluation" {% if search.orderBy == 'evaluation' %}selected{% endif %}>Evaluation</option>
-                            <option value="nbComments" {% if search.orderBy == 'nbComments' %}selected{% endif %}>Nombre de commentaires</option>
-                            <option value="nbViews" {% if search.orderBy == 'nbViews' %}selected{% endif %}>Nombre de vues</option>
-                        </select>
+                        <div class="col-xs-6 col-sm-3">
+                            <label for="orderBy">Trié par :</label>
+                            <select name="orderBy" id="orderBy">
+                                <option value="lastUpdate" {% if search.orderBy == 'lastUpdate' %}selected{% endif %}>Date</option>
+                                <option value="evaluation" {% if search.orderBy == 'evaluation' %}selected{% endif %}>Evaluation</option>
+                                <option value="nbComments" {% if search.orderBy == 'nbComments' %}selected{% endif %}>Nombre de commentaires</option>
+                                <option value="nbViews" {% if search.orderBy == 'nbViews' %}selected{% endif %}>Nombre de vues</option>
+                            </select>
+                        </div>
 
-                        <label for="tag">Disposant du tag :</label>
-                        <select name="tag" id="tag">
-                            <option value="all" {% if search.tag == NULL %}selected{% endif %}>Tous</option>
-                            {% for tag in tags %}}
-                                <option value="{{ tag.id }}" {% if search.tag == tag.id %}selected{% endif %}>{{ tag.name }}</option>
-                            {% endfor %}
-                        </select>
+                        <div class="col-xs-6 col-sm-3">
+                            <label for="tag">Tag :</label>
+                            <select name="tag" id="tag">
+                                <option value="all" {% if search.tag == NULL %}selected{% endif %}>Tous</option>
+                                {% for tag in tags %}}
+                                    <option value="{{ tag.id }}" {% if search.tag == tag.id %}selected{% endif %}>{{ tag.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-                        <label for="order">Ordre :</label>
-                        <select name="order" id="order">
-                            <option value="DESC" {% if search.order == 'DESC' %}selected{% endif %}>Décroissant</option>
-                            <option value="ASC" {% if search.order == 'ASC' %}selected{% endif %}>Croissant</option>
-                        </select>
+                        <div class="col-xs-6 col-sm-3">
+                            <label for="order">Ordre :</label>
+                            <select name="order" id="order">
+                                <option value="DESC" {% if search.order == 'DESC' %}selected{% endif %}>Décroissant</option>
+                                <option value="ASC" {% if search.order == 'ASC' %}selected{% endif %}>Croissant</option>
+                            </select>
+                        </div>
 
                         <input type="hidden" id="next-page" name="next-page" value="{{ pagination.start + pagination.number }}"/>
                         <input type="hidden" id="page" name="page" value="{{ pagination.start }}"/>
@@ -69,7 +79,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-10"><input type="text" name="search" id="search" placeholder="Votre recherche ici" value="{{ search.search }}"/></div><div class="col-md-2"><span class="btn btn-default search-btn">Rechercher</i></span></div>
+                        <div class="col-xs-7 col-sm-10"><input type="text" name="search" id="search" placeholder="Votre recherche ici" value="{{ search.search }}"/></div><div class="col-xs-3 col-sm-2"><span class="btn btn-default search-btn">Rechercher</i></span></div>
 
                     </div>
 
@@ -103,7 +113,7 @@
 =====================================================================================================================-->
 
             {% if posts is not empty %}
-                <table class="table-bordered table-hover text-center">
+                <table class="table-bordered table-hover text-center" id="lg-table">
                     <tr><th class="text-center">Image d'entête</th><th class="text-center">Titre</th><th class="text-center">Chapô</th><th class="text-center"> Infos complémentaires </th> <th class="text-center"> Modifer </th><th class="text-center"> Supprimer </th></tr>
                     {% for post in posts %}
                         <tr><td><img src="{{ post.headerPicture }}" class="browser_img"></td><td>{{ post.title }}
@@ -116,10 +126,42 @@
                                     Pas encore d'évaluations
                                 {% else %}
                                 {{ post.evaluation }} ({{ post.nbEvaluation }} évaluations)
-                                {% endif %}<br />{{ post.nbComments }} commentaires<br /> <u>Dernière mise à jour le : </u>{{ post.lastUpdate|date('d/m/Y') }}</td>
+                                {% endif %}<br />{{ post.nbComments }} commentaires<br /> <u>Dernière mise à jour le :</u> {{ post.lastUpdate|date('d/m/Y') }}</td>
                             <td><a href="/updatePost-{{ post.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delPost-{{ post.id }}_t-{{ token }}" class="btn btn-default">Supprimer</a></td></tr>
                     {% endfor %}
                 </table>
+
+            <table class="table-bordered table-hover text-center" id="xs-table">
+
+                {% for post in posts %}
+                    <tr>
+                        <td colspan="2"><strong>{{ post.title }}</strong>
+                            {% if post.visible != true %}
+                                <p><strong>(Ce post n'est pas encore publié)</strong></p>
+                            {% endif %}
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{ post.hook }}
+                        </td>
+                        <td>
+                            <u>Note :</u>
+                            {% if post.nbEvaluation == "" %}
+                            Pas encore d'évaluations
+                        {% else %}
+                            {{ post.evaluation }} <br />({{ post.nbEvaluation }} évaluations)
+                            {% endif %}<br />{{ post.nbComments }} commentaires<br /> <u>Dernière mise à jour le :</u> {{ post.lastUpdate|date('d/m/Y') }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="/updatePost-{{ post.id }}" class="btn btn-default">Modifer</a></td><td><a href="/delPost-{{ post.id }}_t-{{ token }}" class="btn btn-default">Supprimer</a></td></tr>
+
+                    </tr>
+                {% endfor %}
+
+            </table>
 
 <!--=================================================================================================================-->
 

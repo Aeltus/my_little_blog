@@ -11,6 +11,7 @@ echo '<!DOCTYPE html><html lang="fr">';
 echo'<link href="../Web/Back/css/styles.css" rel="stylesheet">';
 echo '<script type="text/javascript" src="../../vendor/ckeditor/ckeditor/ckeditor.js"></script>';
 echo '<script src="../Web/Back/js/jquery.js"></script>';
+echo '<p><a href="/admin_medias" target="_blank">Ajouter une image sur le serveur</a></p>';
 if($folder = opendir('./Files')){
 
     $autorizedExtentions = array('jpg', 'jpeg', 'png', 'svg', 'gif');

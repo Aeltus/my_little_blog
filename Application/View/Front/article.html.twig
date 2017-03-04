@@ -185,7 +185,7 @@
                 <div class="col-md-12 comments">
                     {% if comments is not empty %}
                         {% for comment in comments %}
-                            <div class="col-md-10 col-md-offset-1 comment">
+                            <div class="col-xs-10 col-xs-offset-1 comment">
                                 <div class="row commentL1"><strong>Auteur :</strong> {{ comment.author }} <strong>Le :</strong> {{ comment.created|date('d/m/Y') }}</div>
                                 <div class="row commentL2">{{ comment.comment }}</div>
                             </div>
