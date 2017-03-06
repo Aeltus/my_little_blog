@@ -726,6 +726,12 @@ a.scrollup:hover{
     background-color: rgba(253, 247, 224, 0.8);
 	border-radius: 10px 0px 10px 0px;
 }
+
+.contentPost {
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+}
+
 .contentPost > p >img{
 	max-width: 100%;
 	height: auto !important;

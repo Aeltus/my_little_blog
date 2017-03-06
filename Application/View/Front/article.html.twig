@@ -44,7 +44,7 @@
                                     {% if x < nbStars %}
                                     <img src="Application/Web/Front/img/star.png" class="star" />
                                     {% elseif x == nbStars %}
-                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.5) %}
+                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.51) %}
                                             <img src="Application/Web/Front/img/halfStar.png" class="star" />
                                         {% else %}
                                             <img src="Application/Web/Front/img/greyStar.png" class="star" />

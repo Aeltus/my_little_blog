@@ -28,12 +28,13 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
 
         if ( isset($_SERVER['REQUEST_URI']) && strstr($_SERVER['REQUEST_URI'], '/admin_posts') ){
             $layout = 'Back/posts.html.twig';
+            $visible = '2';
         } else {
             $layout = 'Front/blogMainPage.html.twig';
+            $visible = '1';
         }
         // All variables are setted to the default values
         $data = [];
-        $visible = '2';
         $limitStart = 0;
         $number = 10;
         $tag = NULL;
