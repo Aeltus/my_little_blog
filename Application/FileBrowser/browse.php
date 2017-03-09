@@ -8,9 +8,9 @@
 
 //get the content of Files directory
 echo '<!DOCTYPE html><html lang="fr">';
-echo'<link href="../View/Back/css/styles.css" rel="stylesheet">';
+echo'<link href="../Web/Back/css/styles.css" rel="stylesheet">';
 echo '<script type="text/javascript" src="../../vendor/ckeditor/ckeditor/ckeditor.js"></script>';
-echo '<script src="../View/Back/js/jquery.js"></script>';
+echo '<script src="../Web/Back/js/jquery.js"></script>';
 if($folder = opendir('./Files')){
 
     $autorizedExtentions = array('jpg', 'jpeg', 'png', 'svg', 'gif');

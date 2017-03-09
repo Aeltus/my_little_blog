@@ -42,15 +42,15 @@
                                 {% set nbStars = post.evaluation // 1 %}
                                 {% for i in 0..9 %}
                                     {% if x < nbStars %}
-                                    <img src="Application/View/Front/img/star.png" class="star" />
+                                    <img src="Application/Web/Front/img/star.png" class="star" />
                                     {% elseif x == nbStars %}
-                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.5) %}
-                                            <img src="Application/View/Front/img/halfStar.png" class="star" />
+                                        {% if ((post.evaluation // 1) + 1) < (post.evaluation + 0.51) %}
+                                            <img src="Application/Web/Front/img/halfStar.png" class="star" />
                                         {% else %}
-                                            <img src="Application/View/Front/img/greyStar.png" class="star" />
+                                            <img src="Application/Web/Front/img/greyStar.png" class="star" />
                                         {% endif %}
                                     {% else %}
-                                        <img src="Application/View/Front/img/greyStar.png" class="star" />
+                                        <img src="Application/Web/Front/img/greyStar.png" class="star" />
                                     {% endif %}
                                     {% set x = x + 1 %}
                                 {% endfor %}
@@ -185,7 +185,7 @@
                 <div class="col-md-12 comments">
                     {% if comments is not empty %}
                         {% for comment in comments %}
-                            <div class="col-md-10 col-md-offset-1 comment">
+                            <div class="col-xs-10 col-xs-offset-1 comment">
                                 <div class="row commentL1"><strong>Auteur :</strong> {{ comment.author }} <strong>Le :</strong> {{ comment.created|date('d/m/Y') }}</div>
                                 <div class="row commentL2">{{ comment.comment }}</div>
                             </div>

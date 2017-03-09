@@ -64,7 +64,7 @@ class BlogPostRepository extends EntityRepository{
 
         if (isset($search)){
 
-            if (isset($tag) or $visible != '2'){
+            if (isset($tag) || $visible != '2'){
 
                 $qb ->andWhere('a.hook LIKE :search')
                     ->setParameter('search', '%'.$search.'%')
@@ -80,7 +80,7 @@ class BlogPostRepository extends EntityRepository{
 
         }
 
-        return new Paginator($qb, $fetchJoinCollection = true);
+        return new Paginator($qb, true);
 
     }
 

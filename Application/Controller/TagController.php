@@ -40,7 +40,7 @@ class TagController extends \Hoa\Dispatcher\Kit{
 
         if (!empty($_POST)){
 
-            $tag->setName($_POST['name']);
+            $tag->setName(trim($_POST['name']));
 /*======================================================================================================================
 *                                                                                                                      *
 *                                  Security verifications before flush                                                 *
@@ -57,7 +57,7 @@ class TagController extends \Hoa\Dispatcher\Kit{
 
                     switch ($error){
                         case "name":
-                            $_SESSION['messagesWarning'][] = "Entrez un nom valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un nom valide composé d'au moins une lettre, chiffres et espaces.";
                     }
 
                 }
@@ -106,7 +106,7 @@ class TagController extends \Hoa\Dispatcher\Kit{
 
                     switch ($error){
                         case "name":
-                            $_SESSION['messagesWarning'][] = "Entrez un nom valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un nom valide composé d'au moins une lettre, chiffres et espaces.";
                     }
 
                 }
@@ -115,7 +115,7 @@ class TagController extends \Hoa\Dispatcher\Kit{
             // if $security is empty, then any error has been raised, so, we can flush
             } else {
 
-                $tag->setName($_POST['name']);
+                $tag->setName(trim($_POST['name']));
                 $em->flush();
 
                 $_SESSION['messagesSuccess'][] = "Tag modifié avec succès.";

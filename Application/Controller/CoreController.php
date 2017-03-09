@@ -114,23 +114,19 @@ if (isset($message) && empty($security)){
 
     // message creating
     $email = \Swift_Message::newInstance()
-
         ->setSubject($message->getSubject())
-
         ->setFrom(array($message->getMail() => $message->getName()))
-
         ->setTo(array($valuesConfig['mail']['sendTo'] => $valuesConfig['mail']['sendToName']))
-
         ->setBody($message->getMessage())
-
-    ;
+        ;
 
     // sending
     if (!$mailer->send($email, $failures))
     {
-        $data['messagesDanger'][] = $failures;
+        $_SESSION['messagesDanger'][] = $failures;
     }
-
+    header("Location: http://" . $_SERVER['HTTP_HOST']);
+    exit();
 }
 
 /*====================================================================================================================*/

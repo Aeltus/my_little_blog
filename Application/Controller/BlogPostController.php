@@ -13,7 +13,8 @@ use Application\Entity\Evaluation;
 use Application\Manager\FormFactory;
 use Application\Manager\GetDoctrine;
 
-class BlogPostController extends \Hoa\Dispatcher\Kit{
+class BlogPostController extends \Hoa\Dispatcher\Kit
+{
 
     public function indexAdmin(){
 
@@ -25,14 +26,15 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
     public function index(){
 
-        if ( $_SERVER['REQUEST_URI'] == '/admin_posts' ){
+        if ( isset($_SERVER['REQUEST_URI']) && strstr($_SERVER['REQUEST_URI'], '/admin_posts') ){
             $layout = 'Back/posts.html.twig';
+            $visible = '2';
         } else {
             $layout = 'Front/blogMainPage.html.twig';
+            $visible = '1';
         }
-        // All variables are set to the default values
+        // All variables are setted to the default values
         $data = [];
-        $visible = '2';
         $limitStart = 0;
         $number = 10;
         $tag = NULL;
@@ -42,21 +44,22 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
         $em = GetDoctrine::getEM();
 
-        // if $_POST send variables are setted to the $_POST values
-        if (!empty($_POST)){
 
-            if (isset($_POST['visible'])){
-                $visible = (int)$_POST['visible'];
+        // if $_GET send variables are setted to the $_GET values
+        if (!empty($_GET)){
+
+            if (isset($_GET['visible'])){
+                $visible = (int)$_GET['visible'];
             }
-            $number = (int)$_POST['number'];
-            $orderBy = $_POST['orderBy'];
-            $order = $_POST['order'];
-            if ($_POST['tag'] != 'all'){
-                $tag = (int)$_POST['tag'];
+            $number = (int)$_GET['number'];
+            $orderBy = $_GET['orderBy'];
+            $order = $_GET['order'];
+            if ($_GET['tag'] != 'all'){
+                $tag = (int)$_GET['tag'];
             }
-            $limitStart = (int)$_POST['page'];
-            if (!empty($_POST['search'])){
-                $search = $_POST['search'];
+            $limitStart = (int)$_GET['page'];
+            if (!empty($_GET['search'])){
+                $search = $_GET['search'];
             }
 
         }
@@ -73,6 +76,8 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
         $data['search'] = ['visible' => $visible, 'limitStart' => $limitStart, 'number' => $number, 'tag' => $tag, 'orderBy' => $orderBy, 'order' => $order, 'search' => $search];
         $data['posts'] = $em->getRepository('Application\Entity\BlogPost')->getPosts($visible, $limitStart, $number, $tag, $orderBy, $order, $search);
         $data['pagination'] = ["start" => $limitStart, "number" => $number, "total" => count($data['posts'])];
+
+
 
         return array('layout' => $layout, 'data' => $data);
 
@@ -98,9 +103,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                 $note = (int)$_POST['note'];
 
-                $evaluation = new Evaluation();
-                $evaluation->setScore($note);
-                $evaluation->setIdPost($id);
+                $evaluation = new Evaluation($note, $id);
                 $em->persist($evaluation);
 
                 $evaluations = $em->getRepository('Application\Entity\Evaluation')->getEvaluationsForPost($id);
@@ -141,18 +144,18 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                 FormFactory::secureCSRF($_POST['token'], 'Comment');
 
-                $comment = new Comment();
-                $comment->setAuthor($_POST['author']);
-                $comment->setComment($_POST['comment']);
-                $comment->setPost($post);
+                $comment = new Comment(trim($_POST['author']), trim($_POST['comment']), $post);
                 $em->persist($comment);
 
                 $security = FormFactory::security('Comment', $comment);
 
-                if (strlen($_POST['comment']) > 255){
+                if (strlen($comment->getComment()) > 255){
                     $security[] = "commentLen";
+                } elseif (strlen($comment->getComment()) < 1){
+                    $security[] = "commentEmpty";
+                } elseif (strlen($comment->getAuthor()) < 1){
+                    $security[] = "authorEmpty";
                 }
-
                 $messageSuccess = "Votre commentaire à bien été enregistré, il sera en ligne après validation.";
 
             }
@@ -171,16 +174,24 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                     switch ($error){
                         case "author":
                             $_SESSION['messagesWarning'][] = "Nom invalide, seulement des lettres et des espaces autorisés.";
+                            break;
                         case "commentLen":
                             $_SESSION['messagesWarning'][] = "Commentaire trop long, 255 caractères maximum.";
-
+                            break;
+                        case "commentEmpty":
+                            $_SESSION['messagesWarning'][] = "Le commentaire est vide.";
+                            break;
+                        case "authorEmpty":
+                            $_SESSION['messagesWarning'][] = "Le nom d'auteur est vide.";
+                            break;
                     }
 
                 }
             } else {
                 $em->flush();
                 $_SESSION['messagesSuccess'][] = $messageSuccess;
-
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/article-".$id);
+                exit();
             }
 
         }
@@ -250,7 +261,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                                 $value = true;
                             }
                             $funcName = "set".ucFirst($attribute);
-                            $post->$funcName($value);
+                            $post->$funcName(trim($value));
 
                         }
 
@@ -286,17 +297,23 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                     switch ($error){
                         case "title":
-                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé d'au moins une lettre, chiffres et espaces.";
+                            break;
                         case "hook":
-                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
+                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé d'au moins une lettre, chiffres, espaces et ponctuation.";
+                            break;
                         case "author":
-                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé d'au moins une lettre, chiffres et espaces.";
+                            break;
                         case "hookLen":
-                        $_SESSION['messagesWarning'][] = "Chapô trop long, 255 caractères maximum.";
+                            $_SESSION['messagesWarning'][] = "Chapô trop long, 255 caractères maximum.";
+                            break;
                         case "authorLen":
                             $_SESSION['messagesWarning'][] = "Nom d'auteur trop long, 255 caractères maximum.";
+                            break;
                         case "titleLen":
                             $_SESSION['messagesWarning'][] = "Titre trop long, 255 caractères maximum.";
+                            break;
                     }
 
                 }
@@ -419,7 +436,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
                                 $value = true;
                             }
                             $funcName = "set".ucFirst($attribute);
-                            $post->$funcName($value);
+                            $post->$funcName(trim($value));
 
                         }
 
@@ -449,11 +466,11 @@ class BlogPostController extends \Hoa\Dispatcher\Kit{
 
                     switch ($error){
                         case "title":
-                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé d'au moins une lettre, chiffres et espaces.";
                         case "hook":
-                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
+                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé d'au moins une lettre, chiffres, espaces et ponctuation.";
                         case "author":
-                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé d'au moins une lettre, chiffres et espaces.";
                     }
 
                 }

@@ -64,9 +64,12 @@ class Comment {
      */
     private $created;
 
-    public function __construct()
+    public function __construct($author, $comment,BlogPost $post)
     {
         $this->created = new \Datetime();
+        $this->author = $author;
+        $this->comment = $comment;
+        $this->post = $post;
     }
 
     /**

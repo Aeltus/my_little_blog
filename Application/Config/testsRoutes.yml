@@ -1,0 +1,16 @@
+contact:
+  path: /contact
+blog:
+  path: /blog
+admin:
+  path: /admin
+admin_posts:
+  path: /admin_posts
+admin_comments:
+  path: /admin_comments
+admin_tags:
+  path: /admin_tags
+admin_medias:
+  path: /admin_medias
+index:
+  path: /
