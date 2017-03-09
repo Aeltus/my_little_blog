@@ -144,15 +144,18 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
 
                 FormFactory::secureCSRF($_POST['token'], 'Comment');
 
-                $comment = new Comment($_POST['author'], $_POST['comment'], $post);
+                $comment = new Comment(trim($_POST['author']), trim($_POST['comment']), $post);
                 $em->persist($comment);
 
                 $security = FormFactory::security('Comment', $comment);
 
-                if (strlen($_POST['comment']) > 255){
+                if (strlen($comment->getComment()) > 255){
                     $security[] = "commentLen";
+                } elseif (strlen($comment->getComment()) < 1){
+                    $security[] = "commentEmpty";
+                } elseif (strlen($comment->getAuthor()) < 1){
+                    $security[] = "authorEmpty";
                 }
-
                 $messageSuccess = "Votre commentaire à bien été enregistré, il sera en ligne après validation.";
 
             }
@@ -171,16 +174,24 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
                     switch ($error){
                         case "author":
                             $_SESSION['messagesWarning'][] = "Nom invalide, seulement des lettres et des espaces autorisés.";
+                            break;
                         case "commentLen":
                             $_SESSION['messagesWarning'][] = "Commentaire trop long, 255 caractères maximum.";
-
+                            break;
+                        case "commentEmpty":
+                            $_SESSION['messagesWarning'][] = "Le commentaire est vide.";
+                            break;
+                        case "authorEmpty":
+                            $_SESSION['messagesWarning'][] = "Le nom d'auteur est vide.";
+                            break;
                     }
 
                 }
             } else {
                 $em->flush();
                 $_SESSION['messagesSuccess'][] = $messageSuccess;
-
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/article-".$id);
+                exit();
             }
 
         }
@@ -250,7 +261,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
                                 $value = true;
                             }
                             $funcName = "set".ucFirst($attribute);
-                            $post->$funcName($value);
+                            $post->$funcName(trim($value));
 
                         }
 
@@ -286,17 +297,23 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
 
                     switch ($error){
                         case "title":
-                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé d'au moins une lettre, chiffres et espaces.";
+                            break;
                         case "hook":
-                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
+                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé d'au moins une lettre, chiffres, espaces et ponctuation.";
+                            break;
                         case "author":
-                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé d'au moins une lettre, chiffres et espaces.";
+                            break;
                         case "hookLen":
-                        $_SESSION['messagesWarning'][] = "Chapô trop long, 255 caractères maximum.";
+                            $_SESSION['messagesWarning'][] = "Chapô trop long, 255 caractères maximum.";
+                            break;
                         case "authorLen":
                             $_SESSION['messagesWarning'][] = "Nom d'auteur trop long, 255 caractères maximum.";
+                            break;
                         case "titleLen":
                             $_SESSION['messagesWarning'][] = "Titre trop long, 255 caractères maximum.";
+                            break;
                     }
 
                 }
@@ -419,7 +436,7 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
                                 $value = true;
                             }
                             $funcName = "set".ucFirst($attribute);
-                            $post->$funcName($value);
+                            $post->$funcName(trim($value));
 
                         }
 
@@ -449,11 +466,11 @@ class BlogPostController extends \Hoa\Dispatcher\Kit
 
                     switch ($error){
                         case "title":
-                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un titre valide composé d'au moins une lettre, chiffres et espaces.";
                         case "hook":
-                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé uniquement de lettres, chiffres, espaces et ponctuation.";
+                            $_SESSION['messagesWarning'][] = "Entrez un châpo valide composé d'au moins une lettre, chiffres, espaces et ponctuation.";
                         case "author":
-                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé uniquement de lettres, chiffres et espaces.";
+                            $_SESSION['messagesWarning'][] = "Entrez un nom d'auteur valide composé d'au moins une lettre, chiffres et espaces.";
                     }
 
                 }
